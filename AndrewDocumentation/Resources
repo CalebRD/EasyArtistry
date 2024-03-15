@@ -11,4 +11,9 @@ Electron Resources
 	   -  This link provides a step by step tutorial on how to create and electron app using electron forge
 	https://www.electronjs.org/docs/latest/tutorial/quick-start 
 	   -  This website provides a tutorial for how to create a simpler, more primitive electron app
+	https://www.youtube.com/watch?v=ML743nrkMHw&ab_channel=TraversyMedia
+	   -  This video also provides a tutorial to make and use an electron app. This was incredibly helpful for me because I find it easier to learn by watching someone else do it. 
+	   -  Each of these three tutorials make slightly different electron apps, varying in functionality and complexity
+	https://www.geeksforgeeks.org/how-to-update-npm/
+	   -  I had trouble using npm while trying to follow the previous tutorials, this website was very helpful in fixing my problem
 
