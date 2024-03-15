@@ -24,3 +24,8 @@ Inspirations - The following websites have certain creative and functional prope
 	https://creator.nightcafe.studio/
 	   -  I very much liked the general setup of this site. Not so much the color scheme but the general organization of features (art in the middle, text prompt on the side, etc.)
 	   -  I did not the like amount of pop-ups this site has, I will be sure to limit those in our program
+	https://openart.ai/home
+	   -  I like that this site offered many clearly defined options for how to use it (such as sketch-to-image, GIFs, and video animation)
+	https://www.craiyon.com/
+	   -  This site provides the option of “negative words” which allows the user limit features (entering “blue” makes the image have less blue). I will be sure to implement this in our code.
+
