@@ -1,0 +1,9 @@
+My job so far this semester has been researching API’s and finding the best API for our projects needs while still being price friendly.
+
+https://stablediffusionapi.com/
+I began learning about stable diffusion api because it appeared to have the most application when it comes to image generation.  I learned basic information about how an api works to generate images  and how the code can be changed to fit the specific application of what the coder is trying to achieve.  Stable Diffusion API allowed me to play around with some of their image generation tools for free so I was able to get some practice and more of an understanding with how it worked.
+The main issue we found with this api was that it was relatively expensive and that we were paying for many features that we would not be using.
+
+	I then researched other options that never really led anywhere where information on this can be found in a pdf in my branch called “List of API.pdf”.
+
+Professor Turner helped us find a repository of an API we could use completely free that we have copied and are beginning to work with currently.
