@@ -1,4 +1,10 @@
 Reactive JavaScript with Stable Diffusion
 	https://www.infoworld.com/article/3701288/reactive-javascript-with-stable-diffusion.html
-   -  I used this website to learn the basics of APIs as well as how they can be used with different programs
+	   -  I used this website to learn the basics of APIs as well as how they can be used with different programs
 
+Electron Resources
+	https://www.youtube.com/watch?v=G1K0Mb-rLBU&list=TLPQMTMwMjIwMjQ1bwltAAGCdA&index=8&ab_channel=TheLinuxExperiment
+	   -  This is a very interesting video about the pros and cons of electron. I found this video to be incredibly helpful when we were still trying to decide which frameworks we can use. We partially decided to use electron for this project instead of React because of the advantages brought up in this video.
+	https://www.electronjs.org/docs/latest/ 
+	   -  This is all the documentation for electron
+	
