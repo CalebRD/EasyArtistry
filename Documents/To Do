@@ -14,3 +14,8 @@ Checkpoint Merger, and Train.
 Image to Image & Generation Tab Streamlining
 - These tabs currently look very intimidating, and ask for input in areas like batch count, batch size, CFG Scale, seed, script, and more. All of these features have very specific uses that
 won't necessarily be needed every time. This can be cleaned up by only including inputs for the prompt and output image size, and the rest can be placed into extra tabs and dropdown menus.
+
+Tutorial Tab
+- There are countless features that this website contains, and it would be difficult for people to understand what every tab and button do, even experienced artists might want to try something
+new but won't know how to do it. That's where the tutorial tab will come in, in order to show all users how to navigate the website's various features.
+
