@@ -10,3 +10,7 @@ features can still be accessed, but will clean up the website a lot.
 Remove Unnecessary Tabs (add to Advanced Settings)
 - Some of the tabs that need to be cleaned up include: Textual Inversion, Hypernetworks, Checkpoints, Lora
 Checkpoint Merger, and Train. 
+
+Image to Image & Generation Tab Streamlining
+- These tabs currently look very intimidating, and ask for input in areas like batch count, batch size, CFG Scale, seed, script, and more. All of these features have very specific uses that
+won't necessarily be needed every time. This can be cleaned up by only including inputs for the prompt and output image size, and the rest can be placed into extra tabs and dropdown menus.
