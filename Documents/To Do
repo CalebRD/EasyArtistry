@@ -4,3 +4,9 @@ GUI Mockup
 - We want to put our own spin on the GUI of this application. The frontend team will work to make the site look more user-friendly. It's pretty primitive at the moment, and since
 the intended users will be artist, we don't need so much information to be displayed on the screen as it is right now.
 
+Advanced Settings Menu
+- Similar to what I mentioned directly above, there are a lot of excess features and settings that don't need to be displayed on the main page. This is where we'll add an extra tab so these 
+features can still be accessed, but will clean up the website a lot.
+Remove Unnecessary Tabs (add to Advanced Settings)
+- Some of the tabs that need to be cleaned up include: Textual Inversion, Hypernetworks, Checkpoints, Lora
+Checkpoint Merger, and Train. 
