@@ -48,6 +48,7 @@ Seed Randomization/lock button
 seed means there can be a variety of images generated from just one prompt. Currently, the seed is just entered as an input by the user, and the user needs to manually change it whenever
 they want to use a different seed. This can easily be improved by giving the user an option of a random or fixed seed based on what images they would like to see.
 
+*Add any additional features that need implementation here.
 
 
 
