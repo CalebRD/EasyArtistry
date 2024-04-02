@@ -32,14 +32,14 @@ div.gradio-container{
 }
 
 .compact{
-    background: #A9A9A9 !important;
+    background: transparent !important;
     padding: 0 !important;
 }
 
 div.form{
     border-width: 0;
     box-shadow: none;
-    background: #A9A9A9;
+    background: transparent;
     overflow: visible;
     gap: 0.5em;
 }
@@ -58,7 +58,7 @@ div.form{
 
 div.gradio-group, div.styler{
     border-width: 0 !important;
-    background: #A9A9A9;
+    background: none;
 }
 .gap.compact{
     padding: 0;
@@ -223,7 +223,7 @@ input[type="checkbox"].input-accordion-checkbox{
 }
 
 .block.token-counter span{
-    background: #A9A9A9 !important;
+    background: var(--input-background-fill) !important;
     box-shadow: 0 0 0.0 0.3em rgba(192,192,192,0.15), inset 0 0 0.6em rgba(192,192,192,0.075);
     border: 2px solid rgba(192,192,192,0.4) !important;
     border-radius: 0.4em;
@@ -386,7 +386,7 @@ div#extras_scale_to_tab div.form{
 #img2img_sketch, #img2maskimg, #inpaint_sketch {
     overflow: overlay !important;
     resize: auto;
-    background: #A9A9A9;
+    background: var(--panel-background-fill);
     z-index: 5;
 }
 
@@ -431,7 +431,7 @@ div.toprow-compact-tools{
     padding: 0;
     border: none;
     box-shadow: none;
-    background: #A9A9A9;
+    background: none;
 }
 #quicksettings > div.gradio-dropdown{
     min-width: 24em !important;
@@ -477,7 +477,7 @@ div.toprow-compact-tools{
 }
 
 table.popup-table{
-    background: #A9A9A9;
+    background: var(--body-background-fill);
     color: var(--body-text-color);
     border-collapse: collapse;
     margin: 1em;
@@ -1046,7 +1046,7 @@ footer {
 
 div.block.gradio-box.edit-user-metadata {
     width: 56em;
-    background: #A9A9A9;
+    background: var(--body-background-fill);
     padding: 2em !important;
 }
 
@@ -1070,7 +1070,7 @@ div.block.gradio-box.edit-user-metadata {
 }
 
 .edit-user-metadata .wrap.translucent{
-    background: #A9A9A9;
+    background: var(--body-background-fill);
 }
 .edit-user-metadata .gradio-highlightedtext span{
     word-break: break-word;
@@ -1085,7 +1085,7 @@ div.block.gradio-box.edit-user-metadata {
 
 div.block.gradio-box.popup-dialog, .popup-dialog {
     width: 56em;
-    background: #A9A9A9;
+    background: var(--body-background-fill);
     padding: 2em !important;
 }
 
