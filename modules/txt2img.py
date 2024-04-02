@@ -8,6 +8,18 @@ import modules.shared as shared
 from modules.ui import plaintext_to_html
 import gradio as gr
 
+def add_watermark(image):
+    # Set RGB scale
+    rgb_scale = (147, 147, 147)
+
+    # Top-left pixel
+    image.putpixel((0, 0), rgb_scale)
+
+    # Bottom-right pixel
+    image.putpixel((image.width - 1, image.height - 1), rgb_scale)
+
+    return image
+
 
 def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, steps: int, sampler_name: str, n_iter: int, batch_size: int, cfg_scale: float, height: int, width: int, enable_hr: bool, denoising_strength: float, hr_scale: float, hr_upscaler: str, hr_second_pass_steps: int, hr_resize_x: int, hr_resize_y: int, hr_checkpoint_name: str, hr_sampler_name: str, hr_prompt: str, hr_negative_prompt, override_settings_texts, request: gr.Request, *args):
     override_settings = create_override_settings_dict(override_settings_texts)
@@ -51,8 +63,11 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
     with closing(p):
         processed = modules.scripts.scripts_txt2img.run(p, *args)
 
-        if processed is None:
-            processed = processing.process_images(p)
+    if processed is None:
+        processed = processing.process_images(p)
+
+    # Call add_watermark function on the generated images
+    processed_images_with_watermark = [add_watermark(img) for img in processed.images]
 
     shared.total_tqdm.clear()
 
@@ -63,4 +78,6 @@ def txt2img(id_task: str, prompt: str, negative_prompt: str, prompt_styles, step
     if opts.do_not_show_images:
         processed.images = []
 
-    return processed.images, generation_info_js, plaintext_to_html(processed.info), plaintext_to_html(processed.comments, classname="comments")
+    # Return processed images with watermark
+    return processed_images_with_watermark, generation_info_js, plaintext_to_html(processed.info), plaintext_to_html(processed.comments, classname="comments")
+

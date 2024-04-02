@@ -17,6 +17,19 @@ from modules.ui import plaintext_to_html
 import modules.scripts
 
 
+
+def add_watermark(image):
+    # Set RGB scale
+    rgb_scale = (147, 147, 147)
+
+    # Top-left pixel
+    image.putpixel((0, 0), rgb_scale)
+
+    # Bottom-right pixel
+    image.putpixel((image.width - 1, image.height - 1), rgb_scale)
+
+    return image
+
 def process_batch(p, input_dir, output_dir, inpaint_mask_dir, args, to_scale=False, scale_by=1.0, use_png_info=False, png_info_props=None, png_info_dir=None):
     output_dir = output_dir.strip()
     processing.fix_seed(p)
@@ -66,7 +79,11 @@ def process_batch(p, input_dir, output_dir, inpaint_mask_dir, args, to_scale=Fal
             p.width = int(img.width * scale_by)
             p.height = int(img.height * scale_by)
 
-        p.init_images = [img] * p.batch_size
+
+         # Add watermark
+        img_with_watermark = add_watermark(img)
+
+        p.init_images = [img_with_watermark] * p.batch_size
 
         image_path = Path(image)
         if is_inpaint_batch:
@@ -91,7 +108,7 @@ def process_batch(p, input_dir, output_dir, inpaint_mask_dir, args, to_scale=Fal
 
         if use_png_info:
             try:
-                info_img = img
+                info_img = img_with_watermark
                 if png_info_dir:
                     info_img_path = os.path.join(png_info_dir, os.path.basename(image))
                     info_img = Image.open(info_img_path)
