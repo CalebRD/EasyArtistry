@@ -19,14 +19,20 @@ import modules.scripts
 
 
 def add_watermark(image):
-    # Set RGB scale
-    rgb_scale = (147, 147, 147)
+    # Convert image to RGB mode to ensure compatibility
+    image = image.convert("RGB")
 
-    # Top-left pixel
-    image.putpixel((0, 0), rgb_scale)
+    # Set RGB scale for the new color
+    new_color = (147, 147, 147)
 
-    # Bottom-right pixel
-    image.putpixel((image.width - 1, image.height - 1), rgb_scale)
+    # Get the size of the image
+    width, height = image.size
+
+    # Change the color of the top left pixel
+    image.putpixel((0, 0), new_color)
+
+    # Change the color of the bottom right pixel
+    image.putpixel((width - 1, height - 1), new_color)
 
     return image
 

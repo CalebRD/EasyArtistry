@@ -8,8 +8,6 @@ import modules.shared as shared
 from modules.ui import plaintext_to_html
 import gradio as gr
 
-from PIL import Image
-
 def add_watermark(image):
     # Convert image to RGB mode to ensure compatibility
     image = image.convert("RGB")
