@@ -246,12 +246,14 @@ function setupResolutionPasting(tabname) {
 });*/
 
 
+
+
 onUiLoaded(function() {
     // Create the label for the dropdown menu
     var dropdownLabel = document.createElement('label');
     dropdownLabel.textContent = 'Options';
-    dropdownLabel.setAttribute('for', 'tabs-dropdown');
-
+    dropdownLabel.style.marginRight = '8px'; // Add padding between the label and the dropdown
+    
     // Create the dropdown menu
     var dropdownMenu = document.createElement('select');
     dropdownMenu.id = 'tabs-dropdown';
@@ -276,11 +278,11 @@ onUiLoaded(function() {
         });
     });
 
-    // Insert the label and dropdown menu into the nav bar
+    // Insert the dropdown label and menu into the nav bar
     var tabsNavBar = gradioApp().querySelector('#tabs');
     tabsNavBar.innerHTML = ''; // Clear existing content
+    dropdownLabel.appendChild(dropdownMenu);
     tabsNavBar.appendChild(dropdownLabel);
-    tabsNavBar.appendChild(dropdownMenu);
 });
 
 
