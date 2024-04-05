@@ -43,6 +43,8 @@ sd_model: sd_models_types.WebuiSdModel = None
 
 settings_components = None
 """assinged from ui.py, a mapping on setting names to gradio components repsponsible for those settings"""
+tutorials_components = None
+
 
 tab_names = []
 

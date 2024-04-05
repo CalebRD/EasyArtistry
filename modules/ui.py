@@ -13,7 +13,7 @@ from PIL import Image, PngImagePlugin  # noqa: F401
 from modules.call_queue import wrap_gradio_gpu_call, wrap_queued_call, wrap_gradio_call
 
 from modules import gradio_extensons  # noqa: F401
-from modules import sd_hijack, sd_models, script_callbacks, ui_extensions, deepbooru, extra_networks, ui_common, ui_postprocessing, progress, ui_loadsave, shared_items, ui_settings, timer, sysinfo, ui_checkpoint_merger, scripts, sd_samplers, processing, ui_extra_networks, ui_toprow
+from modules import sd_hijack, sd_models, script_callbacks, ui_extensions, deepbooru, extra_networks, ui_common, ui_postprocessing, progress, ui_loadsave, shared_items, ui_settings, timer, sysinfo, ui_checkpoint_merger, scripts, sd_samplers, processing, ui_extra_networks, ui_toprow, ui_tutorials
 from modules.ui_components import FormRow, FormGroup, ToolButton, FormHTML, InputAccordion, ResizeHandleRow
 from modules.paths import script_path
 from modules.ui_common import create_refresh_button
@@ -31,6 +31,7 @@ from modules.sd_hijack import model_hijack
 from modules.generation_parameters_copypaste import image_from_url_text
 
 create_setting_component = ui_settings.create_setting_component
+create_tutorials_component = ui_tutorials.create_tutorials_component
 
 warnings.filterwarnings("default" if opts.show_warnings else "ignore", category=UserWarning)
 warnings.filterwarnings("default" if opts.show_gradio_deprecation_warnings else "ignore", category=gr.deprecation.GradioDeprecationWarning)
@@ -1090,6 +1091,9 @@ def create_ui():
     settings = ui_settings.UiSettings()
     settings.create_ui(loadsave, dummy_component)
 
+    tutorials = ui_tutorials.UiSettings()
+    tutorials.create_ui(loadsave, dummy_component)
+
     interfaces = [
         (txt2img_interface, "txt2img", "txt2img"),
         (img2img_interface, "img2img", "img2img"),
@@ -1101,6 +1105,7 @@ def create_ui():
 
     interfaces += script_callbacks.ui_tabs_callback()
     interfaces += [(settings.interface, "Settings", "settings")]
+    interfaces += [(tutorials.interface, "Tutorials", "tutorials")]
 
     extensions_interface = ui_extensions.create_ui()
     interfaces += [(extensions_interface, "Extensions", "extensions")]

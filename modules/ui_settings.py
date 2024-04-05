@@ -68,6 +68,7 @@ class UiSettings:
     show_one_page = None
     search_input = None
 
+    #save changes to the settings
     def run_settings(self, *args):
         changed = []
 

@@ -110,6 +110,7 @@ callback_map = dict(
     callbacks_ui_tabs=[],
     callbacks_ui_train_tabs=[],
     callbacks_ui_settings=[],
+    callbacks_ui_tutorials=[],
     callbacks_before_image_saved=[],
     callbacks_image_saved=[],
     callbacks_extra_noise=[],
@@ -184,6 +185,13 @@ def ui_settings_callback():
             c.callback()
         except Exception:
             report_exception(c, 'ui_settings_callback')
+
+def ui_tutorials_callback():
+    for c in callback_map['callbacks_ui_tutorials']:
+        try:
+            c.callback()
+        except Exception:
+            report_exception(c, 'ui_tutorials_callback')
 
 
 def before_image_saved_callback(params: ImageSaveParams):
