@@ -237,11 +237,45 @@ function setupResolutionPasting(tabname) {
     }
 }
 
-onUiLoaded(function() {
+
+/*onUiLoaded(function() {
     showRestoreProgressButton('txt2img', localGet("txt2img_task_id"));
     showRestoreProgressButton('img2img', localGet("img2img_task_id"));
     setupResolutionPasting('txt2img');
     setupResolutionPasting('img2img');
+});*/
+
+
+onUiLoaded(function() {
+    // Create the dropdown menu
+    var dropdownMenu = document.createElement('select');
+    dropdownMenu.id = 'tabs-dropdown';
+    
+    // Add an option for each tab in the nav bar
+    var tabs = gradioApp().querySelectorAll('#tabs > button');
+    tabs.forEach(function(tab) {
+        var option = document.createElement('option');
+        option.value = tab.textContent.trim();
+        option.textContent = tab.textContent.trim();
+        dropdownMenu.appendChild(option);
+    });
+
+    // Add event listener to handle tab switching when an option is selected
+    dropdownMenu.addEventListener('change', function() {
+        var selectedTab = dropdownMenu.value;
+        var tabs = gradioApp().querySelectorAll('#tabs > button');
+        tabs.forEach(function(tab) {
+            if (tab.textContent.trim() === selectedTab) {
+                tab.click(); // Simulate a click to switch to the selected tab
+            }
+        });
+    });
+
+    // Insert the dropdown menu into the nav bar
+    var tabsNavBar = gradioApp().querySelector('#tabs');
+    // Clear existing tabs but keep the dropdown menu
+    tabsNavBar.innerHTML = ''; // Clear existing content
+    tabsNavBar.appendChild(dropdownMenu);
 });
 
 

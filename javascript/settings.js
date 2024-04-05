@@ -1,10 +1,3 @@
-let settingsExcludeTabsFromShowAll = {
-    settings_tab_defaults: 1,
-    settings_tab_sysinfo: 1,
-    settings_tab_actions: 1,
-    settings_tab_licenses: 1,
-};
-
 function settingsShowAllTabs() {
     gradioApp().querySelectorAll('#settings > div').forEach(function(elem) {
         if (settingsExcludeTabsFromShowAll[elem.id]) return;
@@ -41,10 +34,20 @@ onUiLoaded(function() {
     settings_tabs.insertBefore(edit, settings_tabs.firstChild);
     settings_tabs.appendChild(buttonShowAllPages);
 
-
     buttonShowAllPages.addEventListener("click", settingsShowAllTabs);
-});
 
+    // Add event listeners to make settings categories dropdowns
+    gradioApp().querySelectorAll('.settings-category').forEach(function(category) {
+        category.addEventListener('click', function() {
+            var content = category.nextElementSibling;
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        });
+    });
+});
 
 onOptionsChanged(function() {
     if (gradioApp().querySelector('#settings .settings-category')) return;
@@ -68,4 +71,3 @@ onOptionsChanged(function() {
         sectionElem.parentElement.insertBefore(span, sectionElem);
     });
 });
-
