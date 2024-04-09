@@ -9,9 +9,9 @@ from modules.ui_common import create_refresh_button
 def update_interp_description(value):
     interp_description_css = "<p style='margin-bottom: 2.5em'>{}</p>"
     interp_descriptions = {
-        "No interpolation": interp_description_css.format("No interpolation will be used. Requires one model; A. Allows for format conversion and VAE baking."),
-        "Weighted sum": interp_description_css.format("A weighted sum will be used for interpolation. Requires two models; A and B. The result is calculated as A * (1 - M) + B * M"),
-        "Add difference": interp_description_css.format("The difference between the last two models will be added to the first. Requires three models; A, B and C. The result is calculated as A + (B - C) * M")
+        "No interpolation": interp_description_css.format("This process centers around a single model, A, which performs format conversion and utilizes Variational Autoencoder (VAE) techniques for transforming data into a latent space. With A, data can seamlessly switch between formats, while also enabling functions like compression, feature extraction, and generation."),
+        "Weighted sum": interp_description_css.format("Our interpolation method combines two models, A and B, using a weighted sum approach. The result is determined by blending the outputs of these models based on M. As M varies from 0 to 1, it adjusts the influence of each model, resulting in a smooth transition between their contributions. This technique offers a flexible way to leverage the strengths of both models in generating the final output."),
+        "Add difference": interp_description_css.format("This process employs models A, B, and C. The final output is a blend of A and a weighted difference between B and C, controlled by the factor M. Varying M adjusts the impact of differences between B and C on the result, enabling nuanced integration of insights from all models.")
     }
     return interp_descriptions[value]
 
