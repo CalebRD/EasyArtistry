@@ -89,16 +89,16 @@ class UiSettings:
         return opts.dumpjson(), f'{len(changed)} tutorials changed{": " if changed else ""}{", ".join(changed)}.'
 
     ## determine if necessary
-    def run_tutorials_single(self, value, key):
-        if not opts.same_type(value, opts.data_labels[key].default):
-            return gr.update(visible=True), opts.dumpjson()
+    # def run_tutorials_single(self, value, key):
+    #     if not opts.same_type(value, opts.data_labels[key].default):
+    #         return gr.update(visible=True), opts.dumpjson()
 
-        if value is None or not opts.set(key, value):
-            return gr.update(value=getattr(opts, key)), opts.dumpjson()
+    #     if value is None or not opts.set(key, value):
+    #         return gr.update(value=getattr(opts, key)), opts.dumpjson()
 
-        opts.save(shared.config_filename)
+    #     opts.save(shared.config_filename)
 
-        return get_value_for_tutorial(key), opts.dumpjson()
+    #     return get_value_for_tutorial(key), opts.dumpjson()
 
     def create_ui(self, loadsave, dummy_component):
         self.components = []
@@ -109,63 +109,77 @@ class UiSettings:
 
         script_callbacks.ui_tutorials_callback()
         opts.reorder()
-
+    
         ## these are where the tabs for settings are created
         with gr.Blocks(analytics_enabled=False) as tutorials_interface:
 
+            self.search_input = gr.Textbox(value="", elem_id="tutorials_search", max_lines=1, placeholder="Type key words for a tutorial", show_label=False)
+            self.text_settings = gr.Textbox(elem_id="tutorials_json", value=lambda: opts.dumpjson(), visible=False)
+
             self.result = gr.HTML(elem_id="tutorials_result")
 
-            self.quicktutorials_names = opts.quicktutorials_list
-            self.quicktutorials_names = {x: i for i, x in enumerate(self.quicktutorials_names) if x != 'quicktutorials'}
+            # self.quicktutorials_names = opts.quicktutorials_list
+            # self.quicktutorials_names = {x: i for i, x in enumerate(self.quicktutorials_names) if x != 'quicktutorials'}
 
-            self.quicktutorials_list = []
+            # self.quicktutorials_list = []
 
             previous_section = None
             current_tab = None
             current_row = None
             with gr.Tabs(elem_id="tutorials"):
-                for i, (k, item) in enumerate(opts.data_labels.items()):
-                    section_must_be_skipped = item.section[0] is None
+                # for i, (k, item) in enumerate(opts.data_labels.items()):
+                #     section_must_be_skipped = item.section[0] is None
 
-                    if previous_section != item.section and not section_must_be_skipped:
-                        elem_id, text = item.section
+                #     if previous_section != item.section and not section_must_be_skipped:
+                #         elem_id, text = item.section
 
-                        if current_tab is not None:
-                            current_row.__exit__()
-                            current_tab.__exit__()
+                #         if current_tab is not None:
+                #             current_row.__exit__()
+                #             current_tab.__exit__()
 
-                        gr.Group()
-                        #tabs are created here
-                        current_tab = gr.TabItem(elem_id=f"tutorials_{elem_id}", label=text)
-                        current_tab.__enter__()
-                        current_row = gr.Column(elem_id=f"column_tutorials_{elem_id}", variant='compact')
-                        current_row.__enter__()
+                #         gr.Group()
+                #         #tabs are created here
+                #         current_tab = gr.TabItem(elem_id=f"tutorials_{elem_id}", label=text)
+                #         current_tab.__enter__()
+                #         current_row = gr.Column(elem_id=f"column_tutorials_{elem_id}", variant='compact')
+                #         current_row.__enter__()
 
-                        previous_section = item.section
+                #         previous_section = item.section
 
-                    if k in self.quicktutorials_names and not shared.cmd_opts.freeze_settings:
-                        self.quicktutorials_list.append((i, k, item))
-                        self.components.append(dummy_component)
-                    elif section_must_be_skipped:
-                        self.components.append(dummy_component)
-                    else:
-                        component = create_tutorials_component(k)
-                        self.component_dict[k] = component
-                        self.components.append(component)
-
+                #     if k in self.quicktutorials_names and not shared.cmd_opts.freeze_settings:
+                #         self.quicktutorials_list.append((i, k, item))
+                #         self.components.append(dummy_component)
+                #     elif section_must_be_skipped:
+                #         self.components.append(dummy_component)
+                #     else:
+                #         component = create_tutorials_component(k)
+                #         self.component_dict[k] = component
+                #         self.components.append(component)
+                
                 if current_tab is not None:
                     current_row.__exit__()
                     current_tab.__exit__()
+
+                with gr.TabItem("General", id="general", elem_id="tutorials_tab_general"):
+                    gr.Markdown("# Welcome!")
+                    gr.Markdown("Easy Artistry is a tool intended to aid small artists and indie studios in developing larger projects using AI image generation. Easy Artistry is **not** intended to replace human artists, but instead to expand the scope of what an already skilled artist can acomplish with a smaller amount of time and budget. Our hope is to allow individuals to create animations, comics, and concept art, and small studios to create films.")
+                    gr.Markdown("\n[Example inputs and outputs]")
+                    gr.Markdown("\nHere are links to tutorials for each operation:")
+
+                with gr.TabItem("Generate Images", id="generateImg", elem_id="tutorials_tab_generateImg"):
+                    gr.Markdown("# Using a text prompt:")
+                    gr.Markdown("\n# Using an image:")
+                    gr.Markdown("\n# Filling in blank image parts:")
+
+                with gr.TabItem("Save Images", id="saveImg", elem_id="tutorials_tab_saveImg"):
+                    gr.Markdown("# Saving an image:")
+                    gr.Markdown("\n# Saving to a directory:")
 
                 with gr.TabItem("Sysinfo", id="sysinfo", elem_id="tutorials_tab_sysinfo"):
                     gr.HTML('<a href="./internal/sysinfo-download" class="sysinfo_big_link" download>Download system info</a><br /><a href="./internal/sysinfo" target="_blank">(or open as text in a new page)</a>', elem_id="sysinfo_download")
 
                 with gr.TabItem("Licenses", id="licenses", elem_id="tutorials_tab_licenses"):
                     gr.HTML(shared.html("licenses.html"), elem_id="licenses")
-
-                self.search_input = gr.Textbox(value="", elem_id="tutorials_search", max_lines=1, placeholder="Type key words for a tutorial", show_label=False)
-
-                self.text_settings = gr.Textbox(elem_id="tutorials_json", value=lambda: opts.dumpjson(), visible=False)
 
             def call_func_and_return_text(func, text):
                 def handler():
@@ -184,11 +198,11 @@ class UiSettings:
 
         self.interface = tutorials_interface
 
-    def add_quicktutorials(self):
-        with gr.Row(elem_id="quicktutorials", variant="compact"):
-            for _i, k, _item in sorted(self.quicktutorials_list, key=lambda x: self.quicktutorials_names.get(x[1], x[0])):
-                component = create_tutorials_component(k, is_quicktutorials=True)
-                self.component_dict[k] = component
+    # def add_quicktutorials(self):
+    #     with gr.Row(elem_id="quicktutorials", variant="compact"):
+    #         for _i, k, _item in sorted(self.quicktutorials_list, key=lambda x: self.quicktutorials_names.get(x[1], x[0])):
+    #             component = create_tutorials_component(k, is_quicktutorials=True)
+    #             self.component_dict[k] = component
 
     def add_functionality(self, demo):
         self.submit.click(
@@ -197,24 +211,24 @@ class UiSettings:
             outputs=[self.text_settings, self.result],
         )
 
-        for _i, k, _item in self.quicktutorials_list:
-            component = self.component_dict[k]
-            info = opts.data_labels[k]
+        # for _i, k, _item in self.quicktutorials_list:
+        #     component = self.component_dict[k]
+        #     info = opts.data_labels[k]
 
-            if isinstance(component, gr.Textbox):
-                methods = [component.submit, component.blur]
-            elif hasattr(component, 'release'):
-                methods = [component.release]
-            else:
-                methods = [component.change]
+        #     if isinstance(component, gr.Textbox):
+        #         methods = [component.submit, component.blur]
+        #     elif hasattr(component, 'release'):
+        #         methods = [component.release]
+        #     else:
+        #         methods = [component.change]
 
-            for method in methods:
-                method(
-                    fn=lambda value, k=k: self.run_tutorials_single(value, key=k),
-                    inputs=[component],
-                    outputs=[component, self.text_settings],
-                    show_progress=info.refresh is not None,
-                )
+        #     for method in methods:
+        #         method(
+        #             fn=lambda value, k=k: self.run_tutorials_single(value, key=k),
+        #             inputs=[component],
+        #             outputs=[component, self.text_settings],
+        #             show_progress=info.refresh is not None,
+        #         )
 
         # button_set_checkpoint = gr.Button('Change checkpoint', elem_id='change_checkpoint', visible=False)
         # button_set_checkpoint.click(
