@@ -37,6 +37,7 @@ def check_watermark(image):
 
 
 def add_watermark(image):
+    check_watermark(image)
     # Convert image to RGB mode to ensure compatibility
     image = image.convert("RGB")
 
