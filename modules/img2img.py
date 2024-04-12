@@ -19,14 +19,14 @@ import modules.scripts
 def check_watermark(image):
     # Convert image to check for RGB
     image = image.convert("RGB")
-    
+
     # Get pixel color at (0, 0)
     pixel_0_0 = image.getpixel((0, 0))
-    
+
     # Get pixel color at (-1, -1)
     width, height = image.size
     pixel_minus_1_minus_1 = image.getpixel((width - 1, height - 1))
-    
+
     # Check if both pixels match the watermark color (147, 147, 147)
     if pixel_0_0 == (147, 147, 147) and pixel_minus_1_minus_1 == (147, 147, 147):
         return True
