@@ -164,16 +164,26 @@ class UiSettings:
                     gr.Markdown("# Welcome!")
                     gr.Markdown("Easy Artistry is a tool intended to aid small artists and indie studios in developing larger projects using AI image generation. Easy Artistry is **not** intended to replace human artists, but instead to expand the scope of what an already skilled artist can acomplish with a smaller amount of time and budget. Our hope is to allow individuals to create animations, comics, and concept art, and small studios to create films.")
                     gr.Markdown("\n[Example inputs and outputs]")
-                    gr.Markdown("\nHere are links to tutorials for each operation:")
+                    gr.Markdown("\nPlease refer to the tabs on the right hand side of the \"General\" tab for more information on each operation of Easy Artistry.")
 
                 with gr.TabItem("Generate Images", id="generateImg", elem_id="tutorials_tab_generateImg"):
-                    gr.Markdown("# Using a text prompt:")
-                    gr.Markdown("\n# Using an image:")
-                    gr.Markdown("\n# Filling in blank image parts:")
+                    with gr.TabItem("Text prompt", id="textPrompt", elem_id="tutorials_tab_textPrompt"):
+                        gr.Markdown("# Using a text prompt:")
+                        gr.Markdown("Under the \"txt2img\" tab, there will be two types of text prompts: \"Prompt\" and \"Negative prompt\":\nPrompt: In this section, type key words for any elements you would like to **include** in your image. Examples include: \nNegative prompt: In this section, type key words for any elements you would like to **exclude** in your image. Examples include: ")
+                        gr.Markdown("To adjust the image size, go to the \"Generation\" tab under the \"txt2img\". There you will see the option to adjust the width and height of your image")
+                        gr.Markdown("To generate the image, under the \"txt2img\" tab click on the orange button labeled \"Generate\" on the top right hand side. The image will be generated on the bottom right hand side of the \"text2img\" tab.")
+                        gr.Markdown("Additional opertions under the \"txt2img\" tab:\nYou can load the generated image into the \"img2img\" tab by clicking on this button under the generated image:\nYou can load the generated image into the \"inpaint\" tab by clicking on this button under the generated image:\nFor more information on the \"img2img\" and \"inpaint\" tab, please refer the \"Image Prompt\" and \"Completing an image\" tab")
+                    with gr.TabItem("Image prompt", id="imagePrompt", elem_id="tutorials_tab_imagePrompt"):
+                        gr.Markdown("# Using an image:")
+                    with gr.TabItem("Completing an image", id="completeImg", elem_id="tutorials_tab_completeImg"):
+                        gr.Markdown("# Filling in blank image parts:")
 
                 with gr.TabItem("Save Images", id="saveImg", elem_id="tutorials_tab_saveImg"):
                     gr.Markdown("# Saving an image:")
-                    gr.Markdown("\n# Saving to a directory:")
+                    gr.Markdown("To save your image to a specific directory:")
+
+                with gr.TabItem("Training Model", id="trainModel", elem_id="tutorials_tab_trainModel"):
+                    gr.Markdown("# Training model with your artworks:")
 
                 with gr.TabItem("Sysinfo", id="sysinfo", elem_id="tutorials_tab_sysinfo"):
                     gr.HTML('<a href="./internal/sysinfo-download" class="sysinfo_big_link" download>Download system info</a><br /><a href="./internal/sysinfo" target="_blank">(or open as text in a new page)</a>', elem_id="sysinfo_download")
