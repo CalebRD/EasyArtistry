@@ -25,6 +25,7 @@ div.gradio-image button[aria-label="Edit"] {
 
 div.gradio-container{
     max-width: unset !important;
+    background-color: black;
 }
 
 .hidden{

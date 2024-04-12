@@ -237,7 +237,6 @@ function setupResolutionPasting(tabname) {
     }
 }
 
-
 onUiLoaded(function() {
     showRestoreProgressButton('txt2img', localGet("txt2img_task_id"));
     showRestoreProgressButton('img2img', localGet("img2img_task_id"));
