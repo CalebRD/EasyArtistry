@@ -244,7 +244,6 @@ onUiLoaded(function() {
     setupResolutionPasting('img2img');
 });
 
-
 function modelmerger() {
     var id = randomId();
     requestProgress(id, gradioApp().getElementById('modelmerger_results_panel'), null, function() {});
