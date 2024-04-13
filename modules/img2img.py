@@ -17,9 +17,6 @@ from modules.ui import plaintext_to_html
 import modules.scripts
 
 def check_watermark(image):
-    # Convert image to check for RGB
-    image = image.convert("RGB")
-
     # Get pixel color at (0, 0)
     pixel_0_0 = image.getpixel((0, 0))
 
@@ -37,21 +34,21 @@ def check_watermark(image):
 
 
 def add_watermark(image):
-    check_watermark(image)
-    # Convert image to RGB mode to ensure compatibility
     image = image.convert("RGB")
+    if (check_watermark(image)):
+        image = "messages\Error.png"
+    else:
+        # Set RGB scale for the new color
+        new_color = (147, 147, 147)
 
-    # Set RGB scale for the new color
-    new_color = (147, 147, 147)
+        # Get the size of the image
+        width, height = image.size
 
-    # Get the size of the image
-    width, height = image.size
+        # Change the color of the top left pixel
+        image.putpixel((0, 0), new_color)
 
-    # Change the color of the top left pixel
-    image.putpixel((0, 0), new_color)
-
-    # Change the color of the bottom right pixel
-    image.putpixel((width - 1, height - 1), new_color)
+        # Change the color of the bottom right pixel
+        image.putpixel((width - 1, height - 1), new_color)
 
     return image
 
@@ -288,4 +285,5 @@ def img2img(id_task: str, mode: int, prompt: str, negative_prompt: str, prompt_s
     if opts.do_not_show_images:
         processed.images = []
 
+    add_watermark(processed.images[-1])
     return processed.images, generation_info_js, plaintext_to_html(processed.info), plaintext_to_html(processed.comments, classname="comments")
