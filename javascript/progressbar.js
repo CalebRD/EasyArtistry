@@ -98,11 +98,11 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
                 removeProgressBar();
                 return;
             }
-    
+
             let progressText = "";
-    
+
             divInner.style.width = ((res.progress || 0) * 100.0) + '%';
-    
+
             // Change the color based on the value of res.progress
             if (res.progress < 0.33) {
                 divInner.style.background = "red";
@@ -117,7 +117,7 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
                 // Set text color to white
                 divInner.style.color = "white";
             }
-    
+
             if (res.progress > 0) {
                 progressText = ((res.progress || 0) * 100.0).toFixed(0) + '%';
             }
@@ -125,33 +125,33 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
             if (res.eta) {
                 progressText += " Time Left: " + formatTime(res.eta);
             }
-    
+
             setTitle(progressText);
-    
+
             if (res.textinfo && res.textinfo.indexOf("\n") == -1) {
                 progressText = res.textinfo + " " + progressText;
             }
-    
+
             divInner.textContent = progressText;
-    
+
             var elapsedFromStart = (new Date() - dateStart) / 1000;
-    
+
             if (res.active) wasEverActive = true;
-    
+
             if (!res.active && wasEverActive) {
                 removeProgressBar();
                 return;
             }
-    
+
             if (elapsedFromStart > inactivityTimeout && !res.queued && !res.active) {
                 removeProgressBar();
                 return;
             }
-    
+
             if (onProgress) {
                 onProgress(res);
             }
-    
+
             setTimeout(() => {
                 funProgress(id_task, res.id_live_preview);
             }, 91); // Update every 91 milliseconds
@@ -159,7 +159,7 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
             removeProgressBar();
         });
     };
-            
+
     var funLivePreview = function(id_task, id_live_preview) {
         request("./internal/progress", {id_task: id_task, id_live_preview: id_live_preview}, function(res) {
             if (!divProgress) {
