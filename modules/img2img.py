@@ -20,37 +20,14 @@ def check_watermark(image):
     # Get pixel color at (0, 0)
     pixel_0_0 = image.getpixel((0, 0))
 
-    # Get pixel color at (-1, -1)
+    # Get pixel color at (width - 1, height - 1)
     width, height = image.size
-    pixel_minus_1_minus_1 = image.getpixel((width - 1, height - 1))
+    pixel_width_height = image.getpixel((width - 1, height - 1))
 
     # Check if both pixels match the watermark color (147, 147, 147)
-    if pixel_0_0 == (147, 147, 147) and pixel_minus_1_minus_1 == (147, 147, 147):
+    if pixel_0_0 == (147, 147, 147) and pixel_width_height == (147, 147, 147):
         return True
-    else:
-        return False
-
-
-
-
-def add_watermark(image):
-    image = image.convert("RGB")
-    if (check_watermark(image)):
-        image = "messages\Error.png"
-    else:
-        # Set RGB scale for the new color
-        new_color = (147, 147, 147)
-
-        # Get the size of the image
-        width, height = image.size
-
-        # Change the color of the top left pixel
-        image.putpixel((0, 0), new_color)
-
-        # Change the color of the bottom right pixel
-        image.putpixel((width - 1, height - 1), new_color)
-
-    return image
+    return False
 
 def process_batch(p, input_dir, output_dir, inpaint_mask_dir, args, to_scale=False, scale_by=1.0, use_png_info=False, png_info_props=None, png_info_dir=None):
     output_dir = output_dir.strip()
@@ -285,5 +262,20 @@ def img2img(id_task: str, mode: int, prompt: str, negative_prompt: str, prompt_s
     if opts.do_not_show_images:
         processed.images = []
 
-    add_watermark(processed.images[-1])
+    # This currently gets called on the final output image, however it takes place after the image is developed, meaning there are some bugs.
+
+    if (check_watermark(init_img)): 
+        processed.images[-1] = "messages\Error.png"
+    else:
+        # Watermark not detected, add watermark
+        processed.images[-1] = processed.images[-1].convert("RGB")
+        watermark_color = (147, 147, 147)
+        width, height = processed.images[-1].size
+
+        # Change the color of the top left pixel
+        processed.images[-1].putpixel((0, 0), watermark_color)
+
+        # Change the color of the bottom right pixel
+        processed.images[-1].putpixel((width - 1, height - 1), watermark_color)
+
     return processed.images, generation_info_js, plaintext_to_html(processed.info), plaintext_to_html(processed.comments, classname="comments")
