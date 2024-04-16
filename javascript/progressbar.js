@@ -127,6 +127,10 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
             }
 
             setTitle(progressText);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f2cf92fcd3e0bf445100af4bfefd856915a64ba
             if (res.textinfo && res.textinfo.indexOf("\n") == -1) {
                 progressText = res.textinfo + " " + progressText;
             }
@@ -158,6 +162,10 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
             removeProgressBar();
         });
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f2cf92fcd3e0bf445100af4bfefd856915a64ba
     var funLivePreview = function(id_task, id_live_preview) {
         request("./internal/progress", {id_task: id_task, id_live_preview: id_live_preview}, function(res) {
             if (!divProgress) {
