@@ -121,7 +121,7 @@ function requestProgress(id_task, progressbarContainer, gallery, atEnd, onProgre
             if (res.progress > 0) {
                 progressText = ((res.progress || 0) * 100.0).toFixed(0) + '%';
             }
-    
+
             if (res.eta) {
                 progressText += " Time Left: " + formatTime(res.eta);
             }
