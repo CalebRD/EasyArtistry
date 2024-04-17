@@ -126,17 +126,14 @@ function setSubmitButtonsVisibility(tabname, showInterrupt, showSkip, showInterr
 }
 
 function showSubmitButtons(tabname, show) {
-    setSubmitButtonsVisibility(tabname, !show, !show, false);
-}
-
-function showSubmitInterruptingPlaceholder(tabname) {
-    setSubmitButtonsVisibility(tabname, false, true, true);
+    gradioApp().getElementById(tabname + '_interrupt').style.display = show ? "none" : "block";
+    gradioApp().getElementById(tabname + '_skip').style.display = show ? "none" : "block";
 }
 
 function showRestoreProgressButton(tabname, show) {
     var button = gradioApp().getElementById(tabname + "_restore_progress");
     if (!button) return;
-    button.style.setProperty('display', show ? 'flex' : 'none', 'important');
+    button.style.display = show ? "flex" : "none";
 }
 
 function submit() {
@@ -154,14 +151,6 @@ function submit() {
     var res = create_submit_args(arguments);
 
     res[0] = id;
-
-    return res;
-}
-
-function submit_txt2img_upscale() {
-    var res = submit(...arguments);
-
-    res[2] = selected_gallery_index();
 
     return res;
 }
@@ -319,6 +308,8 @@ onAfterUiUpdate(function() {
     });
 
     json_elem.parentElement.style.display = "none";
+
+    setupTokenCounters();
 });
 
 onOptionsChanged(function() {
