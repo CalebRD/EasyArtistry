@@ -191,12 +191,19 @@ class UiSettings:
                         gr.Markdown("To adjust the image size, under \"Generation\" tab you will see a \"Resize to\". Under that tab, you will see the option to adjust the width and height of your image")
                         gr.Markdown("To specify what you want alter within the masked area, on the top left hand corner, you will see two prompts: \"Prompt\" and \"Negative prompt\": \nPrompt: In this section, type key words for any elements you would like to **include** in your image. Examples include: \nNegative prompt: In this section, type key words for any elements you would like to **exclude** in your image. Examples include: \nFor both types, if you are adding multiple prompts, make sure to seperate them with a comma.")
                         gr.Markdown("Additional opertions under the \"Inpaint\" and \"Inpaint sketch\" tab:\nYou can load the generated image into the \"img2img\" tab by clicking on this button under the generated image:\nFor more information on the \"img2img\" tab, please refer the \"Image prompt\" tab")
+               
                 with gr.TabItem("Save Images", id="saveImg", elem_id="tutorials_tab_saveImg"):
                     gr.Markdown("# Saving an image:")
-                    gr.Markdown("To save your image to a specific directory:")
+                    gr.Markdown("To download your image after generating your new image: click on the save icon underneath the generated image. To download the image, underneath the generated image, click on the generated name next to the file name.") 
+                    gr.Markdown("To download a zip file of all your generated image(s): click on the file organizer icon underneath the generated image. Underneath the generated image, there will be two options. The first link allows you to download a zip file of your image(s). The rest of the links underneath just downloads one image.")
+                    gr.Markdown("To save your generated images to a specific directory, go to the settings tab. In the \"Paths for saving\" section, underneath \"Output directory for images\" specify the relative path to which directory you to save to. To save your changes, click \"Apply settings\".")
 
                 with gr.TabItem("Training Model", id="trainModel", elem_id="tutorials_tab_trainModel"):
-                    gr.Markdown("# Training model with your artworks:")
+                    gr.Markdown("# Training the model with your artworks:")
+                    gr.Markdown("To train your model to tailor the generated images to your style, go to your EasyArtistry folder. In that folder create a folder labeled \"hypernetworks\". In your subject folder, add around 30 512px by 512px images of your subject.")
+                    gr.Markdown("Next go to the \"Create hypernetwork\" under the \"Train\" tab. Under name, give a the hypernetwork name of your subject, then click the \"Create hypernetwork\" button.")
+                    gr.Markdown("Next go to Train sub tab. Under Hypernetwork, select your subject hypernetwork. Under Dataset directory, put the path to your subject folder. Under prompt template, select hypernetwork.txt. Finally, check the box next to \"Read parameters (prompt, etc...) from txt2img tab when making previews\".")
+                    gr.Markdown("Next go to the txt2img and enter a prompt in \"Prompt\" to describe how you want your hypernetwork to be. Finally, go back to the Train sub tab and click the \"Train Hypernetwork\" button.")
 
                 with gr.TabItem("Sysinfo", id="sysinfo", elem_id="tutorials_tab_sysinfo"):
                     gr.HTML('<a href="./internal/sysinfo-download" class="sysinfo_big_link" download>Download system info</a><br /><a href="./internal/sysinfo" target="_blank">(or open as text in a new page)</a>', elem_id="sysinfo_download")
