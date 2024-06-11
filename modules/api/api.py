@@ -748,7 +748,7 @@ class Api:
                     'inactive': inactive,
                     'events': warnings,
                 }
-            else:
+            else: # if GPU is not available
                 cuda = {'error': 'unavailable'}
         except Exception as err:
             cuda = {'error': f'{err}'}
