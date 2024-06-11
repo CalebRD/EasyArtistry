@@ -749,7 +749,7 @@ class Api:
                     'events': warnings,
                 }
             else: # if GPU is not available
-                cuda = {'error': 'unavailable'}
+                cuda = {'error': ' GPU unavailable, using CPU.'}
         except Exception as err:
             cuda = {'error': f'{err}'}
         return models.MemoryResponse(ram=ram, cuda=cuda)
