@@ -6,6 +6,7 @@ import datetime
 import uvicorn
 import ipaddress
 import requests
+import psutil
 import gradio as gr
 from threading import Lock
 from io import BytesIO
@@ -748,8 +749,12 @@ class Api:
                     'inactive': inactive,
                     'events': warnings,
                 }
-            else: # if GPU is not available
-                cuda = {'error': ' GPU unavailable, using CPU.'}
+            else: # if strong GPU is not available
+                # psutil: library for retrieving info on running processes using CPU
+                memory_stats = psutil.virtual_memory()
+               
+                cuda = {'error': ' Strong GPU unavailable, using CPU.'}
+                
         except Exception as err:
             cuda = {'error': f'{err}'}
         return models.MemoryResponse(ram=ram, cuda=cuda)
