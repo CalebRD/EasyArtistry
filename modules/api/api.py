@@ -6,7 +6,6 @@ import datetime
 import uvicorn
 import ipaddress
 import requests
-import psutil
 import gradio as gr
 from threading import Lock
 from io import BytesIO
@@ -751,9 +750,22 @@ class Api:
                 }
             else: # if strong GPU is not available
                 # psutil: library for retrieving info on running processes using CPU
-                memory_stats = psutil.virtual_memory()
-               
-                cuda = {'error': ' Strong GPU unavailable, using CPU.'}
+                s = psutil.virtual_memory()
+                system = {'free': s.available, 'used', s.used, 'total': s.total}
+                allocated = {'current': s.used, 'peak': s.used}
+                reserved = {'current': s.active, 'peak': s.total - s.available}
+                active = {'current': s.active, 'peak': s.active}
+                inactive = {'current': s.total - s.used, 'peak': s.total - s.used}
+                warnings = {'retires': None, 'oom': None}
+                cuda = {
+                    'system': system,
+                    'active': active,
+                    'allocated': allocated,
+                    'reserved': reserved,
+                    'inactive': inactive,
+                    'events': warnings,
+                }
+                #cuda = {'error': ' Strong GPU unavailable, using CPU.'}
                 
         except Exception as err:
             cuda = {'error': f'{err}'}
