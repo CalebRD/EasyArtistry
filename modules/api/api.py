@@ -753,9 +753,9 @@ class Api:
                 s = psutil.virtual_memory()
                 system = {'free': s.available, 'used', s.used, 'total': s.total}
                 allocated = {'current': s.used, 'peak': s.used}
-                reserved = {'current': s.active, 'peak': s.total - s.available}
+                reserved = {'current': s.active, 'peak': s.active}
                 active = {'current': s.active, 'peak': s.active}
-                inactive = {'current': s.total - s.used, 'peak': s.total - s.used}
+                inactive = {'current': s.inactive, 'peak': s.inactive}
                 warnings = {'retires': None, 'oom': None}
                 cuda = {
                     'system': system,
