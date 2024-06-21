@@ -1057,6 +1057,14 @@ class StableDiffusionProcessingTxt2Img(StableDiffusionProcessing):
         self.cached_hr_c = StableDiffusionProcessingTxt2Img.cached_hr_c
 
     def calculate_target_resolution(self):
+        #Enforce maximum resolution & any aspect ratio
+        max_resolution = 1920*1080
+        
+        if self.width > max_resolution or self.height > max_resolution:
+            scale_factor = max_resolution / max(self.width, self.height)
+            self.width = int(self.width * scale_factor)
+            self.height = int(self.height * scale_factor)
+
         if opts.use_old_hires_fix_width_height and self.applied_old_hires_behavior_to != (self.width, self.height):
             self.hr_resize_x = self.width
             self.hr_resize_y = self.height
@@ -1088,6 +1096,7 @@ class StableDiffusionProcessingTxt2Img(StableDiffusionProcessing):
                 if src_ratio < dst_ratio:
                     self.hr_upscale_to_x = self.hr_resize_x
                     self.hr_upscale_to_y = self.hr_resize_x * self.height // self.width
+
                 else:
                     self.hr_upscale_to_x = self.hr_resize_y * self.width // self.height
                     self.hr_upscale_to_y = self.hr_resize_y
@@ -1108,7 +1117,7 @@ class StableDiffusionProcessingTxt2Img(StableDiffusionProcessing):
             if self.hr_sampler_name is not None and self.hr_sampler_name != self.sampler_name:
                 self.extra_generation_params["Hires sampler"] = self.hr_sampler_name
 
-            if tuple(self.hr_prompt) != tuple(self.prompt):
+            if tuple(self.hr_prompt) != tuple(self.prompt)
                 self.extra_generation_params["Hires prompt"] = self.hr_prompt
 
             if tuple(self.hr_negative_prompt) != tuple(self.negative_prompt):
@@ -1134,6 +1143,27 @@ class StableDiffusionProcessingTxt2Img(StableDiffusionProcessing):
 
             if self.hr_upscaler is not None:
                 self.extra_generation_params["Hires upscaler"] = self.hr_upscaler
+
+    def sample(self, conditioning, unconditional_conditioning, seeds, subseeds, subseed_strength, prompts):
+        self.sampler = sd_samplers.create_sampler(self.sampler_name, self.sd_model)
+
+        x = self.rng.next()
+        samples = self.sampler.sample(self, x, conditioning, unconditional_conditioning, image_conditioning=self.txt2img_image_conditioning(x))
+        del x
+
+        if not self.enable_hr:
+            return samples
+        devices.torch_gc()
+
+        if self.latent_scale_mode is None:
+            decoded_samples = torch.stack(decode_latent_batch(self.sd_model, samples, target_device=devices.cpu, check_for_nans=True)).to(dtype=torch.float32)
+        else:
+            decoded_samples = None
+
+        with sd_models.SkipWritingToConfig():
+            sd_models.reload_model_weights(info=self.hr_checkpoint_info)
+
+        return self.sample_hr_pass(samples, decoded_samples, seeds, subseeds, subseed_strength, prompts)
 
     def sample(self, conditioning, unconditional_conditioning, seeds, subseeds, subseed_strength, prompts):
         self.sampler = sd_samplers.create_sampler(self.sampler_name, self.sd_model)
