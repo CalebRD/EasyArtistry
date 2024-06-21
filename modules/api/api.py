@@ -750,6 +750,7 @@ class Api:
                 }
             else: # if strong GPU is not available
                 # psutil: library for retrieving info on running processes using CPU
+                cuda = {'error': ' Strong GPU unavailable, using CPU.'}
                 s = psutil.virtual_memory()
                 system = {'free': s.available, 'used', s.used, 'total': s.total}
                 allocated = {'current': s.used, 'peak': s.used}
@@ -765,7 +766,7 @@ class Api:
                     'inactive': inactive,
                     'events': warnings,
                 }
-                #cuda = {'error': ' Strong GPU unavailable, using CPU.'}
+                
                 
         except Exception as err:
             cuda = {'error': f'{err}'}
