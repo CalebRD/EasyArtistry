@@ -89,14 +89,16 @@ div.compact{
     }
 }
 
+/*Highlight of selected item in dropdowns*/
 .gradio-dropdown ul.options li.item.selected {
-    background-color: var(--neutral-100);
+    background-color: darkgray;
 }
 
 .dark .gradio-dropdown ul.options li.item.selected {
     background-color: var(--neutral-900);
 }
 
+/*Drop shadow of dropdown prompts*/
 .gradio-dropdown div.wrap.wrap.wrap.wrap{
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
@@ -133,12 +135,14 @@ div.gradio-html.min{
     min-height: 0;
 }
 
+/*Image generation preview windows*/
 .block.gradio-gallery{
     background: var(--input-background-fill);
 }
 
+/*Footer text (?)*/
 .gradio-container .prose a, .gradio-container .prose a:visited{
-    color: unset;
+    color: maroon;
     text-decoration: none;
 }
 
@@ -212,6 +216,7 @@ input[type="checkbox"].input-accordion-checkbox{
 
 /* txt2img/img2img specific */
 
+/*counter of characters in prompts*/
 .block.token-counter{
     position: absolute;
     display: inline-block;
@@ -292,13 +297,11 @@ input[type="checkbox"].input-accordion-checkbox{
     font-weight: bold;
 }
 
+/*"Generate" button*/
 #txt2img_generate, #img2img_generate {
     min-height: 4.5em;
 }
 
-#txt2img_generate, #img2img_generate {
-    min-height: 4.5em;
-}
 .generate-box-compact #txt2img_generate, .generate-box-compact #img2img_generate {
     min-height: 3em;
 }
@@ -312,8 +315,10 @@ input[type="checkbox"].input-accordion-checkbox{
 .gradio-gallery .thumbnails img {
     object-fit: scale-down !important;
 }
+
+
 #txt2img_actions_column, #img2img_actions_column {
-    gap: 0.5em;
+    gap: 0.5em; /*creates distance between prompts and generation settings*/
 }
 #txt2img_tools, #img2img_tools{
     gap: 0.4em;
@@ -390,8 +395,9 @@ div#extras_scale_to_tab div.form{
     z-index: 5;
 }
 
+/*buttons below image preveiw*/
 .image-buttons > .form{
-    justify-content: center;
+    justify-content: left;
 }
 
 .infotext {
@@ -399,6 +405,7 @@ div#extras_scale_to_tab div.form{
 }
 
 #img2img_column_batch{
+    color:yellow;
     align-self: end;
     margin-bottom: 0.9em;
 }
@@ -509,7 +516,7 @@ table.popup-table .link{
 }
 
 #settings .gradio-textbox, #settings .gradio-slider, #settings .gradio-number, #settings .gradio-dropdown, #settings .gradio-checkboxgroup, #settings .gradio-radio{
-    margin-top: 0.75em;
+    margin-top: .75em;
 }
 
 #settings span .settings-comment {
