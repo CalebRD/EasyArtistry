@@ -164,6 +164,7 @@ div.gradio-container, .block.gradio-textbox, div.gradio-group, div.gradio-dropdo
 
 /* general styled components */
 
+
 .gradio-button.tool{
     max-width: 2.2em;
     min-width: 2.2em !important;
@@ -297,8 +298,10 @@ input[type="checkbox"].input-accordion-checkbox{
     font-weight: bold;
 }
 
-/*"Generate" button*/
+/*"Generate" buttons*/
 #txt2img_generate, #img2img_generate {
+    color: lawngreen;
+    background-color: purple;
     min-height: 4.5em;
 }
 
@@ -1163,4 +1166,32 @@ body.resizing .resize-handle {
     bottom: 0;
     left: 7.5px;
     border-left: 1px dashed var(--border-color-primary);
+}
+
+#settings_restart_gradio{
+    color: blue;
+}
+
+#txt2img_results{
+    background-color: pink;
+}
+
+#html{
+    background-color: purple;
+}
+
+#body{
+    background-color: purple;
+}
+
+#txt2img{
+    background-color: cyan;
+}
+
+.scroll-hide{
+    background-color: black;
+    color: white;
+    padding: 100px;
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
