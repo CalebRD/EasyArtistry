@@ -753,6 +753,7 @@ class Api:
                 cuda = {'error': ' Strong GPU unavailable, using CPU.'}
                 s = psutil.virtual_memory()
                 system = {'free': s.available, 'used', s.used, 'total': s.total}
+                s = {}
                 allocated = {'current': s.used, 'peak': s.used}
                 reserved = {'current': s.active, 'peak': s.active}
                 active = {'current': s.active, 'peak': s.active}
