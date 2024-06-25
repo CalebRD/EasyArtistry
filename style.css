@@ -142,8 +142,9 @@ div.gradio-html.min{
 
 /*Footer text (?)*/
 .gradio-container .prose a, .gradio-container .prose a:visited{
-    color: maroon;
+    color: rgb(114, 81, 101);
     text-decoration: none;
+    font-weight: bold;
 }
 
 a{
@@ -300,8 +301,6 @@ input[type="checkbox"].input-accordion-checkbox{
 
 /*"Generate" buttons*/
 #txt2img_generate, #img2img_generate {
-    color: lawngreen;
-    background-color: purple;
     min-height: 4.5em;
 }
 
@@ -408,7 +407,6 @@ div#extras_scale_to_tab div.form{
 }
 
 #img2img_column_batch{
-    color:yellow;
     align-self: end;
     margin-bottom: 0.9em;
 }
@@ -1172,10 +1170,6 @@ body.resizing .resize-handle {
     color: blue;
 }
 
-#txt2img_results{
-    background-color: pink;
-}
-
 #html{
     background-color: purple;
 }
@@ -1189,9 +1183,12 @@ body.resizing .resize-handle {
 }
 
 .scroll-hide{
-    background-color: black;
-    color: white;
-    padding: 100px;
+    padding: 10px;
     font-size: larger;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+*{
+    background-color: rgb(228, 222, 213);
+    color: rgb(114, 81, 101);
 }
