@@ -113,6 +113,8 @@ div.compact{
 }
 
 .gradio-dropdown .token-remove.remove-all.remove-all{
+    color:rgb(114, 81, 101);
+    background:rgb(228, 222, 213);
     display: none;
 }
 
@@ -509,7 +511,7 @@ table.popup-table .link{
 }
 
 .ui-defaults-none{
-    color: #aaa !important;
+    color: hotpink !important;
 }
 
 #settings span{
@@ -1132,6 +1134,7 @@ div.accordions > div.input-accordion.input-accordion-open{
 /* sticky right hand columns */
 
 #img2img_results, #txt2img_results, #extras_results {
+    color:rgb(228, 222, 213);
     position: sticky;
     top: 0.5em;
 }
@@ -1178,8 +1181,14 @@ body.resizing .resize-handle {
     background-color: purple;
 }
 
-#txt2img{
-    background-color: cyan;
+*{
+    background-color: rgb(228, 222, 213);
+    color: rgb(114, 81, 101);
+}
+
+
+#txt2img_results_panel{
+    background-color: rgb(228, 222, 213);
 }
 
 .scroll-hide{
@@ -1188,7 +1197,3 @@ body.resizing .resize-handle {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-*{
-    background-color: rgb(228, 222, 213);
-    color: rgb(114, 81, 101);
-}
