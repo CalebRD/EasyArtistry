@@ -749,7 +749,7 @@ class Api:
                     'events': warnings,
                 }
             else:
-                cuda = {'error': 'Strong GPU unavailable.'}    
+                cuda = {'error': 'unavailable'}
         except Exception as err:
             cuda = {'error': f'{err}'}
         return models.MemoryResponse(ram=ram, cuda=cuda)
@@ -788,4 +788,3 @@ class Api:
     def stop_webui(request):
         shared.state.server_command = "stop"
         return Response("Stopping.")
-
