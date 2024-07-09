@@ -748,10 +748,9 @@ class Api:
                     'inactive': inactive,
                     'events': warnings,
                 }
-            else: # if strong GPU is not available
-                # psutil: library for retrieving info on running processes using CPU
+            else:
                 cuda = {'error': 'Strong GPU unavailable.'}
-            }
+            
                 
                 
         except Exception as err:
