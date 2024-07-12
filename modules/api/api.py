@@ -789,14 +789,14 @@ class Api:
         shared.state.server_command = "stop"
         return Response("Stopping.")
 
-    def use_api_key(self): #takes api key to allow user to generate images from wanted source
+    def use_api_key(api_key): #takes api key to allow user to generate images from wanted source
         url = 'https://api.openai.com/v1'
-        status = requests.get(url)
         headers = {
             "Host": "https://openai.com/",
             "Key": api_key,
             "Content-type": "application/json"
         }
+        status = requests.get(url, headers = headers)
         if (status.status_code = 200):
             data = status.json() #dictionary of names with proprties of photos
         else:
