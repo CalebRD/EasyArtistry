@@ -795,12 +795,10 @@ class Api:
              "Authorization": "Bearer " + api_key,
              "Content-Type": "application/json"
         }
-       
         try: 
-            status = requests.get(url, headers = headers)
+            status = requests.get(url, headers=headers)
             if status.status_code == 200:
                 data = status.json() #dictionary of names with proprties of photos
                 return data
         except requests.exceptions.RequestException as err:
             status = {'error': f'{err}'}
-        
