@@ -36,6 +36,41 @@
         }
     }
 
+    function handleWidthBarInput(value) {
+        const MAX_WIDTH = 1920;
+        // Enforce maximum width constraint
+        if (value > MAX_WIDTH) {
+            value = MAX_WIDTH;
+        }
+        // Update width UI bar 
+        document.getElementById('widthBar').value = value;
+    }
+    
+    document.getElementById('widthBar').addEventListener('input', function(e) {
+        let inputValue = parseInt(e.target.value);
+        handleWidthBarInput(inputValue);
+    });
+
+    function handleHeightBarInput(value) {
+        const MAX_Height = 1080;
+        // Enforce maximum height constraint
+        if (value > MAX_Height) {
+            value = MAX_Height;
+        }
+        // Update height UI bar 
+        document.getElementById('heightBar').value = value;
+    }
+    
+    document.getElementById('widthBar').addEventListener('input', function(e) {
+        let inputValue = parseInt(e.target.value);
+        handleWidthBarInput(inputValue);
+    });
+
+    document.getElementById('heightBar').addEventListener('input', function(e) {
+        let inputValue = parseInt(e.target.value);
+        handleheightBarInput(inputValue);
+    });
+
     function afterResize(parent) {
         if (displayResizeHandle(parent) && parent.style.gridTemplateColumns != GRID_TEMPLATE_COLUMNS) {
             const oldParentWidth = R.parentWidth;

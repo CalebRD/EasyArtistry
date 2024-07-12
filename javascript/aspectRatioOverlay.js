@@ -10,12 +10,12 @@ let arFrameTimeout = setTimeout(function() {}, 0);
 function dimensionChange(value, isWidth, isHeight) {
     let floatValue = parseFloat(value);
 
-    // Validate width input
+    // Validate width
     if (isWidth && floatValue > MAX_ALLOWED_WIDTH) {
         floatValue = MAX_ALLOWED_WIDTH;
     }
 
-    // Validate height input
+    // Validate height
     if (isHeight && floatValue > MAX_ALLOWED_HEIGHT) {
         floatValue = MAX_ALLOWED_HEIGHT;
     }
@@ -93,28 +93,25 @@ function handleDimensionInput(e) {
     let inputValue = parseFloat(e.target.value);
     let isWidth = e.target.id === "img2img_width";
     let isHeight = e.target.id === "img2img_height";
+    
     if(isWidth && inputValue > MAX_ALLOWED_WIDTH){
-        e.target.value = MAX_ALLOWED_WIDTH;
         inputValue = MAX_ALLOWED_WIDTH;
+        e.target.value = MAX_ALLOWED_WIDTH;
 }
     if (isHeight && inputValue > MAX_ALLOWED_HEIGHT) {
-        e.target.value = MAX_ALLOWED_HEIGHT;
         inputValue = MAX_ALLOWED_HEIGHT;
+        e.target.value = MAX_ALLOWED_HEIGHT;
 }
     dimensionChange(inputValue, isWidth, isHeight);
 }
 
-function initializeEventListeners() {
+setTimeout(function() {
     let widthInput = document.getElementById('img2img_width');
     let heightInput = document.getElementById('img2img_height');
 
-    widthInput.addEventListener('input', handleDimensioninput);
+    widthInput.addEventListener('input', handleDimensionInput);
     heightInput.addEventListener('input', handleDimensionInput);
-}
-function dimensionChange(value, isWidth, isHeight) {
-    console.log('Dimension changed - Value: ${value}, isWidth: ${isWidth}, isHeight: ${isHeight}')
-}
-setTimeout(initializeEventListeners, 1000);
+}, 1000);
 
 onAfterUiUpdate(function() {
     var arPreviewRect = gradioApp().querySelector('#imageARPreview');

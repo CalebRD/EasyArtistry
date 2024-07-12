@@ -237,6 +237,50 @@ function setupResolutionPasting(tabname) {
     }
 }
 
+function setupResolutionPasting(tabname) {
+    var widthInput = gradioApp().querySelector(`#${tabname}_width input[type=number]`);
+    var heightInput = gradioApp().querySelector(`#${tabname}_height input[type=number]`);
+    
+    // Maximum allowed values 
+    var MAX_WIDTH = 1920;
+    var MAX_HEIGHT = 1080;
+
+    for (const el of [widthInput, heightInput]) {
+        el.addEventListener('paste', function(event) {
+            var pasteData = event.clipboardData.getData('text/plain');
+            var parsed = pasteData.match(/^\s*(\d+)\D+(\d+)\s*$/);
+            
+            if (parsed) {
+                var parsedWidth = parseInt(parsed[1]);
+                var parsedHeight = parseInt(parsed[2]);
+                
+                // Enforce maximum width and height constraints
+                var widthValue = Math.min(parsedWidth, MAX_WIDTH);
+                var heightValue = Math.min(parsedHeight, MAX_HEIGHT);
+                
+                widthInput.value = widthValue;
+                heightInput.value = heightValue;
+                
+                updateInput(widthInput);
+                updateInput(heightInput);
+                
+                event.preventDefault();
+            }
+        });
+        
+        // Additional validation
+        el.addEventListener('input', function(event) {
+            var inputValue = parseInt(event.target.value);
+            
+            if (el === widthInput && inputValue > MAX_WIDTH) {
+                event.target.value = MAX_WIDTH;
+            } else if (el === heightInput && inputValue > MAX_HEIGHT) {
+                event.target.value = MAX_HEIGHT;
+            }
+        });
+    }
+}
+
 onUiLoaded(function() {
     showRestoreProgressButton('txt2img', localGet("txt2img_task_id"));
     showRestoreProgressButton('img2img', localGet("img2img_task_id"));
