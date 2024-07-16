@@ -60,6 +60,13 @@ var contextMenuInit = function() {
 
     }
 
+    function hideContextMenu() {
+        let contextMenu = document.getElementId('#context-menu');
+        if (contextMenu) {
+            contextMenu.style.display = 'none';
+        }
+    }
+
     function appendContextMenuOption(targetElementSelector, entryName, entryFunction) {
 
         var currentItems = menuSpecs.get(targetElementSelector);
