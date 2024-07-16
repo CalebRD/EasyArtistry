@@ -13,6 +13,12 @@ function settingsShowAllTabs() {
     });
 }
 
+function settingsHideAllTabs() {
+    gradioApp().querySelectorAll('#settings > div').forEach(function(elem) {
+        elem.style.display = "none";
+    });
+}
+
 function settingsShowOneTab() {
     gradioApp().querySelector('#settings_show_one_page').click();
 }
