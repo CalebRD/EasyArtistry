@@ -23,6 +23,13 @@ function settingsShowOneTab() {
     gradioApp().querySelector('#settings_show_one_page').click();
 }
 
+function settingsHideOneTab() {
+    let oneTab = gradioApp().querySelector('#settings_show_one_page');
+    if (oneTab) {
+        oneTab.style.display = "none";
+    }
+}
+
 onUiLoaded(function() {
     var edit = gradioApp().querySelector('#settings_search');
     var editTextarea = gradioApp().querySelector('#settings_search > label > input');
