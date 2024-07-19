@@ -114,7 +114,8 @@ div.compact{
 
 .gradio-dropdown .token-remove.remove-all.remove-all{
     color:rgb(114, 81, 101);
-    background:rgb(228, 222, 213);
+    background: rgb(208, 202, 193);
+    padding: 0%;
     display: none;
 }
 
@@ -135,11 +136,6 @@ div.compact{
 }
 div.gradio-html.min{
     min-height: 0;
-}
-
-/*Image generation preview windows*/
-.block.gradio-gallery{
-    background: var(--input-background-fill);
 }
 
 /*Footer text (?)*/
@@ -1133,8 +1129,9 @@ div.accordions > div.input-accordion.input-accordion-open{
 
 /* sticky right hand columns */
 
-#img2img_results, #txt2img_results, #extras_results {
+#img2img_results, #img2img_results_panel, #txt2img_results, #extras_results, #extras_results_panel {
     color:rgb(228, 222, 213);
+    background-color: rgb(228, 222, 213);
     position: sticky;
     top: 0.5em;
 }
@@ -1185,32 +1182,39 @@ body.resizing .resize-handle {
     background-color: rgb(228, 222, 213);
     color: rgb(114, 81, 101);
     border-color: rgb(114, 81, 101);
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 
-#txt2img_results_panel{
+#txt2img_results_panel, #txt2img_gallery .gradio-column.svelte-vt1mxs{
     background-color: rgb(228, 222, 213);
 }
 
 .scroll-hide{
-    padding: 10px;
+    padding: 0px;
     font-size: larger;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Calibri', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(114, 81, 101);
 }
 
 .ml-2.svelte-1p9xokt{
     background-color: white;
 }
 
-.gradio-column.svelte-vt1mxs{
+.svelte-1xsj8nn, .dropdown-arrow, .svelte-s1r2yt, .block.gradio-accordion, .label-wrap, .token-remove{
+    background-color: rgb(208, 202, 193);
+    backdrop-filter: contrast(1);
+}
+
+.svelte-1gfkn6j {
     background-color: rgb(228, 222, 213);
 }
 
-.svelte-1xsj8nn{
-    background-color: rgb(248, 242, 233);
+.empty{
+    background-color: rgb(238, 232, 223);
+    backdrop-filter: contrast(2);
 }
 
-.svelte-1gfkn6j{
-    background-color: rgb(228, 222, 213);
+.svelte-kqi2jn{
+    color: rgb(114, 81, 101);
 }
