@@ -25,6 +25,16 @@ function showModal(event) {
     event.stopPropagation();
 }
 
+function hideModal() {
+    const lb = gradioApp().getElementById("lightboxModal");
+    const modalImage = gradioApp().getElementById("modalImage");
+    lb.style.display = "none";
+    modalImage.src = '';
+
+    gradioApp().getElementById("modal_save").style.display = "none";
+    
+}
+
 function negmod(n, m) {
     return ((n % m) + m) % m;
 }
