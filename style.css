@@ -1184,6 +1184,8 @@ body.resizing .resize-handle {
 *{
     background-color: rgb(228, 222, 213);
     color: rgb(114, 81, 101);
+    border-color: rgb(114, 81, 101);
+    border-radius: 5px;
 }
 
 
@@ -1197,3 +1199,18 @@ body.resizing .resize-handle {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.ml-2.svelte-1p9xokt{
+    background-color: white;
+}
+
+.gradio-column.svelte-vt1mxs{
+    background-color: rgb(228, 222, 213);
+}
+
+.svelte-1xsj8nn{
+    background-color: rgb(248, 242, 233);
+}
+
+.svelte-1gfkn6j{
+    background-color: rgb(228, 222, 213);
+}
