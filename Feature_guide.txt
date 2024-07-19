@@ -24,11 +24,11 @@ We're doing this as a txt file for now just to see the changes better on GitHub.
 			model. This not only allows the image to be generated at usable resolutions in reasonable times, but also creates
 			more refined and cohesive results.
 		b. Refiner:
-			The refiner feature is an atmittedly niche feature, but still has some handy use cases. If you have multiple
+			The refiner feature is an admittedly niche feature, but still has some handy use cases. If you have multiple
 			models installed, the refiner allows the generation process to switch models at some point through the generation
 			process. An example use case is, let's say you have a model that creates interesting poses and compositions, but
 			does not render in a style you enjoy. You could swap models to one that works in a more appropriate style halfway
-			through, once its generally decided the pose and compostion. 
+			through, once its generally decided the pose and composition. 
 2. img 2 img
 	This is very similar to txt 2 img in principle, however, it varies in a few key ways. Both prompt boxes work more or less as expected, and
 	all the presets should also work for this tab.
@@ -36,3 +36,9 @@ We're doing this as a txt file for now just to see the changes better on GitHub.
 			This is specifically img2img under the main img2img category. This function essentially allows the user to upload an image,
 			and then generate a new image that's influenced by both the words in the prompts boxes, as well as the uploaded image. 
 			The main use case for this would be to influence the model, either with the composition or style of a reference. 
+		b. inpaint tab: 
+			This functions much more like the txt2img tab. Essentially, you fill out the prompts boxes, and you still upload a reference
+			image. However, you also have to paint in (or mask out) an area where you want the model to generate. When you click generate
+			the model will then fill in the area you masked out with whatever is written in the prompt boxes. Its recommended to use
+			some blur on the mask for best results, it also might take a number of generations to get something that meshes well with the
+			reference image, although this is pretty heavily dependent on the model being used. 
