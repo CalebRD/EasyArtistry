@@ -30,9 +30,7 @@ function hideModal() {
     const modalImage = gradioApp().getElementById("modalImage");
     lb.style.display = "none";
     modalImage.src = '';
-
     gradioApp().getElementById("modal_save").style.display = "none";
-    
 }
 
 function negmod(n, m) {
