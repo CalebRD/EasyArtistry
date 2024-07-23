@@ -113,6 +113,25 @@ var titles = {
     "Negative Guidance minimum sigma": "Skip negative prompt for steps where image is already mostly denoised; the higher this value, the more skips there will be; provides increased performance in exchange for minor quality reduction."
 };
 
+function showTooltip(element) {
+    if (element.title) {
+        let tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        tooltip.innerText = element.title;
+        document.body.appendChild(tooltip);
+
+        element.dataset.tooltip = tooltip;
+    }
+}
+
+function hideToolTip(element) {
+    if (element.dataset.tooltip) {
+        const tooltip = element.dataset.tooltip;
+        document.body.removeChild(tooltip);
+        delete element.dataset.tooltip;
+    }
+}
+
 function updateTooltip(element) {
     if (element.title) return; // already has a title
 
@@ -201,3 +220,4 @@ onUiLoaded(function() {
         }
     }
 });
+ 
