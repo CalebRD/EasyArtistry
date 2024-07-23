@@ -119,7 +119,6 @@ function showTooltip(element) {
         tooltip.className = 'custom-tooltip';
         tooltip.innerText = element.title;
         document.body.appendChild(tooltip);
-
         element.dataset.tooltip = tooltip;
     }
 }
@@ -220,4 +219,3 @@ onUiLoaded(function() {
         }
     }
 });
- 
