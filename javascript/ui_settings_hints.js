@@ -1,19 +1,19 @@
 // various hints and extra info for the settings tab
 
-let settingsHintsSetup = false;
+var settingsHintsSetup = false;
 
 onOptionsChanged(function() {
     if (settingsHintsSetup) return;
     settingsHintsSetup = true;
 
     gradioApp().querySelectorAll('#settings [id^=setting_]').forEach(function(div) {
-        const name = div.id.substr(8);
-        const commentBefore = opts._comments_before[name];
-        const commentAfter = opts._comments_after[name];
+        var name = div.id.substr(8);
+        var commentBefore = opts._comments_before[name];
+        var commentAfter = opts._comments_after[name];
 
         if (!commentBefore && !commentAfter) return;
 
-        const span = null;
+        var span = null;
         if (div.classList.contains('gradio-checkbox')) span = div.querySelector('label span');
         else if (div.classList.contains('gradio-checkboxgroup')) span = div.querySelector('span').firstChild;
         else if (div.classList.contains('gradio-radio')) span = div.querySelector('span').firstChild;
@@ -41,12 +41,12 @@ onOptionsChanged(function() {
 
 function settingsHintsShowQuicksettings() {
     requestGet("./internal/quicksettings-hint", {}, function(data) {
-        const table = document.createElement('table');
+        var table = document.createElement('table');
         table.className = 'popup-table';
 
         data.forEach(function(obj) {
-            const tr = document.createElement('tr');
-            const td = document.createElement('td');
+            var tr = document.createElement('tr');
+            var td = document.createElement('td');
             td.textContent = obj.name;
             tr.appendChild(td);
 
