@@ -47,3 +47,12 @@ We're doing this as a txt file for now just to see the changes better on GitHub.
 	pretty much any other model, to achieve best results one must typically include a number of keywords and phrases in order to ensure that the model does
 	not fall into some of their common pitfalls. The purpose of this is to improve accessibility by not requiring artists to have to memorize all unintuitive
 	or redundant keywords that are still necessary. 
+		a. What presets are for:
+			General-use this preset whenever the intended subject does not fit into any other category. This preset just signals to the
+				model to avoid flat, boring, or incorrect generations.
+			People-use this when you're attempting to generate a character or person. This feature does all of the above, as well as 
+				encouraging accurate anatomy, clear faces, and sensible posing. 
+			Architecture- Use this when attempting to make inorganic environments, like buildings and cities. It's designed to facilitate 
+				inorganic shapes and clear, detailed architecture. 
+			Props-use this when attempting to generate specific objects. This preset attempts to generate flat, "concept art" formats.
+				If you do not want this, simply use 'general' in this place. 
