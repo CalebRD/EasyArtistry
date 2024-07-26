@@ -125,7 +125,21 @@ function showTooltip(element) {
     }
 }
 
-function positionTooltip() {
+function positionTooltip(event) {
+    const tooltip = event.target.dataset.tooltip;
+    if (tooltip) {
+        let tooltipRect = tooltip.getBoundingClientRect();
+        let x = event.clientX + 10;
+        let y = event.clientY + 10;
+
+        if (x + tooltipRect.width > window.innerWidth) {
+            x = window.innerWidth - tooltipRect.width - 10;
+        }
+        
+        if (y + tooltipRect.width > window.innerWidth) {
+            y = window.innerWidth - tooltipRect.width - 10;
+        }
+    }
 }
 
 function hideToolTip(element) {
