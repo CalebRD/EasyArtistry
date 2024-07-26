@@ -120,14 +120,23 @@ function showTooltip(element) {
         tooltip.innerText = element.title;
         document.body.appendChild(tooltip);
         element.dataset.tooltip = tooltip;
+
+        element.addEventListener('mousemove', positionTooltip); // near the cursor
     }
+}
+
+function positionTooltip() {
 }
 
 function hideToolTip(element) {
     if (element.dataset.tooltip) {
         const tooltip = element.dataset.tooltip;
-        document.body.removeChild(tooltip);
+
+        tooltip.addEventListener('transitioned', () => {
+        document.body.removeChild(tooltip); }, {once: true});
         delete element.dataset.tooltip;
+
+        element.removeEventListener('mousemove', positionTooltip);
     }
 }
 
