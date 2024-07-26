@@ -135,7 +135,6 @@ function positionTooltip(event) {
         if (x + tooltipRect.width > window.innerWidth) {
             x = window.innerWidth - tooltipRect.width - 10;
         }
-        
         if (y + tooltipRect.width > window.innerWidth) {
             y = window.innerWidth - tooltipRect.width - 10;
         }
