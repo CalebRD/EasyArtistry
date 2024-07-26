@@ -42,3 +42,8 @@ We're doing this as a txt file for now just to see the changes better on GitHub.
 			the model will then fill in the area you masked out with whatever is written in the prompt boxes. Its recommended to use
 			some blur on the mask for best results, it also might take a number of generations to get something that meshes well with the
 			reference image, although this is pretty heavily dependent on the model being used. 
+3. presets
+	Presets are the first of Easy Artistry original features. They're purpose is a bit specific. When generating an image with stable diffusion, or
+	pretty much any other model, to achieve best results one must typically include a number of keywords and phrases in order to ensure that the model does
+	not fall into some of their common pitfalls. The purpose of this is to improve accessibility by not requiring artists to have to memorize all unintuitive
+	or redundant keywords that are still necessary. 
