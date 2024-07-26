@@ -1166,8 +1166,9 @@ body.resizing .resize-handle {
     border-left: 1px dashed var(--border-color-primary);
 }
 
-#settings_restart_gradio{
-    color: blue;
+.lg.primary.gradio-button{
+    color: rgb(114, 81, 101);
+    background-color: yellow;
 }
 
 #html{
@@ -1190,6 +1191,10 @@ body.resizing .resize-handle {
     background-color: rgb(228, 222, 213);
 }
 
+/*svg, body{
+    background-color: rgb(208, 202, 193);
+}*/
+
 .scroll-hide{
     padding: 0px;
     font-size: larger;
@@ -1206,11 +1211,20 @@ body.resizing .resize-handle {
     backdrop-filter: contrast(1);
 }
 
-.svelte-1gfkn6j {
+#txt2img_sampling{
+    background-color: rgb(228, 222, 213);
+    color: yellow;
+}
+
+.svelte-vt1mxs.gap.panel{
     background-color: rgb(228, 222, 213);
 }
 
-.empty{
+#columns-settings-saving-paths{
+    background-color: rgb(0, 0, 0, 0);
+}
+
+.empty, .svelte-116rqfv, .svelte-1ck5uk8{
     background-color: rgb(238, 232, 223);
     backdrop-filter: contrast(2);
 }
