@@ -1,7 +1,19 @@
 // code related to showing and updating progressbar shown as the image is being made
 
 function rememberGallerySelection() {
-
+    var gallery = document.querySelector('.gallery');
+    if (gallery) {
+        var index = null;
+        if (gallery.tagName == 'SELECT') {
+            index = gallery.selectedIndex;
+        } else if (index != undefined) {
+            localStorage.setItem('selectedGalleryIndex', index);
+        } else {
+            console.error('Failed to rememberGallerySelection: Unable to retrieve index.');
+        }
+    } else {
+        console.error('Gallery element not found.');
+    }
 }
 
 function getGallerySelectedIndex() {
