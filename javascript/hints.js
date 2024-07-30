@@ -146,7 +146,7 @@ function hideToolTip(element) {
         const tooltip = element.dataset.tooltip;
 
         tooltip.addEventListener('transitioned', () => {
-        document.body.removeChild(tooltip); 
+            document.body.removeChild(tooltip);
         }, {once: true});
         delete element.dataset.tooltip;
 
