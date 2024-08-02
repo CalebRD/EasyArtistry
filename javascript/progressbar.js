@@ -17,7 +17,19 @@ function rememberGallerySelection() {
 }
 
 function getGallerySelectedIndex() {
-
+    var selectedindex = localStorage.getItem('selectedGalleryIndex');
+    if (selectedindex != null) {
+        var index = parseInt(selectedindex, 10);
+        if (!isNaN(index)) {
+            console.log('Got Gallery Selected Index:', index);
+            return index;
+        } else {
+            console.error('Invalid index from localStorage');
+        }
+    } else {
+        console.warn('No gallery selected in localStorage');
+    }
+    return null;
 }
 
 function request(url, data, handler, errorHandler) {
