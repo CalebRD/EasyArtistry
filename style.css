@@ -1214,6 +1214,14 @@ svg, span.svelte-1gfkn6j, .svelte-19hvt5v, .ml-2.svelte-1qxcj04{
     backdrop-filter: contrast(1);
 }
 
+div.wrap.svelte-1xsj8nn{
+    background: rgb(218, 212, 203);
+}
+
+.wrap-inner.svelte-1xsj8nn{
+    border-radius: 7px;
+}
+
 #txt2img_sampling, div#setting_sd_model_checkpoint{
     background-color: rgb(228, 222, 213);
 }
