@@ -1,0 +1,78 @@
+.lg.primary.gradio-button{
+    color: rgb(114, 81, 101);
+}
+
+#html{
+    background-color: purple;
+}
+
+#body{
+    background-color: purple;
+}
+
+*{
+    background-color: rgb(228, 222, 213);
+    color: rgb(114, 81, 101);
+    border-color: rgb(114, 81, 101);
+    border-radius: 0px;
+}
+
+
+#txt2img_results_panel, #txt2img_gallery .gradio-column.svelte-vt1mxs, div.canvas-tooltip-content{
+    background-color: rgb(228, 222, 213);
+}
+
+svg, span.svelte-1gfkn6j, .svelte-19hvt5v, .ml-2.svelte-1qxcj04{
+    background-color: rgb(0, 0, 0, 0);
+    color: rgb(114, 81, 101);
+    -ms-high-contrast-adjust: none;
+}
+
+ul.options.svelte-1aonegi{
+    background-color: rgb(228, 222, 213);
+}
+
+.scroll-hide{
+    padding: 0px;
+    font-size: larger;
+    font-family: 'Calibri', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(114, 81, 101);
+}
+
+.ml-2.svelte-1p9xokt{
+    background-color: white;
+}
+
+.wrap-inner.svelte-1xsj8nn, .secondary-wrap.svelte-1xsj8nn, .wrap.svelte-1xsj8nn, .dropdown-arrow, .svelte-s1r2yt, .block.gradio-accordion, 
+.label-wrap, .token-remove, #txt2img_hr-extra, #txtimg_hr_finalres, .resolution{
+    background: rgb(208, 202, 193);
+    color: rgb(114, 81, 101);
+}
+
+div.wrap.svelte-1xsj8nn{
+    background: rgb(218, 212, 203);
+}
+
+.wrap-inner.svelte-1xsj8nn{
+    border-radius: 7px;
+}
+
+#txt2img_sampling, div#setting_sd_model_checkpoint{
+    background-color: rgb(228, 222, 213);
+}
+
+.svelte-vt1mxs.gap.panel{
+    background-color: rgb(228, 222, 213);
+}
+
+#columns-settings-saving-paths, .feather-image, circle, rect, polyline{
+    background-color: rgb(0, 0, 0, 0);
+}
+
+.empty, .svelte-116rqfv, .svelte-1ck5uk8{
+    background-color: rgb(238, 232, 223);
+}
+
+.svelte-kqi2jn{
+    color: rgb(114, 81, 101);
+}
