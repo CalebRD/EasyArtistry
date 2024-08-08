@@ -10,6 +10,8 @@
     background-color: purple;
 }
 
+
+/* General rule: background (288-222-213), text/accent (114-81-101)*/
 *{
     background-color: rgb(228, 222, 213);
     color: rgb(114, 81, 101);
@@ -17,7 +19,7 @@
     border-radius: 0px;
 }
 
-
+/* Spot where the pictures go*/
 #txt2img_results_panel, #txt2img_gallery .gradio-column.svelte-vt1mxs, div.canvas-tooltip-content{
     background-color: rgb(228, 222, 213);
 }

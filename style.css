@@ -170,7 +170,7 @@ div.gradio-container, .block.gradio-textbox, div.gradio-group, div.gradio-dropdo
     height: 2.4em;
     align-self: end;
     line-height: 1em;
-    border-radius: 0.5em;
+    /*border-radius: 0.5em;*/
 }
 
 .gradio-button.secondary-down{
@@ -186,7 +186,7 @@ div.gradio-container, .block.gradio-textbox, div.gradio-group, div.gradio-dropdo
 }
 
 button.custom-button{
-    border-radius: var(--button-large-radius);
+    /*border-radius: var(--button-large-radius);*/
     padding: var(--button-large-padding);
     font-weight: var(--button-large-text-weight);
     border: var(--button-border-width) solid var(--button-secondary-border-color);
@@ -203,7 +203,7 @@ button.custom-button{
 
 div.block.gradio-accordion {
     border: 1px solid var(--block-border-color) !important;
-    border-radius: 8px !important;
+    /*border-radius: 8px !important;*/
     margin: 2px 0;
     padding: 8px 8px;
 }
@@ -231,7 +231,7 @@ input[type="checkbox"].input-accordion-checkbox{
     /*background: var(--input-background-fill) !important;*/
     box-shadow: 0 0 0.0 0.3em rgba(192,192,192,0.15), inset 0 0 0.6em rgba(192,192,192,0.075);
     border: 2px solid rgba(192,192,192,0.4) !important;
-    border-radius: 0.4em;
+    /*border-radius: 0.4em;*/
 }
 
 .block.token-counter.error span{
@@ -348,11 +348,11 @@ input[type="checkbox"].input-accordion-checkbox{
 }
 .gradio-button.generate-box-interrupt{
     left: 0;
-    border-radius: 0.5rem 0 0 0.5rem;
+    /*border-radius: 0.5rem 0 0 0.5rem;*/
 }
 .gradio-button.generate-box-skip{
     right: 0;
-    border-radius: 0 0.5rem 0.5rem 0;
+    /*border-radius: 0 0.5rem 0.5rem 0;*/
 }
 
 #img2img_scale_resolution_preview.block{
@@ -555,7 +555,7 @@ table.popup-table .link{
     position: absolute;
     height: 20px;
     background: #b4c0cc;
-    border-radius: 3px !important;
+    /*border-radius: 3px !important;*/
     top: -14px;
     left: 0px;
     width: 100%;
@@ -582,7 +582,7 @@ table.popup-table .link{
     line-height: 20px;
     padding: 0 8px 0 0;
     text-align: right;
-    border-radius: 3px;
+    /*border-radius: 3px;*/
     overflow: visible;
     white-space: nowrap;
     padding: 0 0.5em;
@@ -729,14 +729,14 @@ table.popup-table .link{
   font-weight: bold;
   font-size: 20px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  /*border-radius: 0 3px 3px 0;*/
   user-select: none;
   -webkit-user-select: none;
 }
 
 .modalNext {
   right: 0;
-  border-radius: 3px 0 0 3px;
+  /*border-radius: 3px 0 0 3px;*/
 }
 
 .modalPrev:hover,
@@ -763,7 +763,7 @@ table.popup-table .link{
     display:block;
     padding:0px 0;
     border:2px solid #a55000;
-    border-radius:8px;
+    /*border-radius:8px;*/
     box-shadow:1px 1px 2px #CE6400;
     width: 200px;
 }
@@ -975,7 +975,7 @@ footer {
     width: 16rem;
     height: 24rem;
     box-shadow: 0 0 5px rgba(128, 128, 128, 0.5);
-    border-radius: 0.2rem;
+    /*border-radius: 0.2rem;*/
     position: relative;
 
     background-size: auto 100%;
