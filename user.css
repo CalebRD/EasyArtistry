@@ -2,21 +2,13 @@
     color: rgb(114, 81, 101);
 }
 
-#html{
-    background-color: purple;
-}
-
-#body{
-    background-color: purple;
-}
-
-
 /* General rule: background (288-222-213), text/accent (114-81-101)*/
 *{
     background-color: rgb(228, 222, 213);
     color: rgb(114, 81, 101);
     border-color: rgb(114, 81, 101);
     border-radius: 0px;
+    font-family: "Humanist";
 }
 
 /* Spot where the pictures go*/
@@ -37,7 +29,6 @@ ul.options.svelte-1aonegi{
 .scroll-hide{
     padding: 0px;
     font-size: larger;
-    font-family: 'Calibri', 'Arial Narrow', Arial, sans-serif;
     color: rgb(114, 81, 101);
 }
 
@@ -75,6 +66,6 @@ div.wrap.svelte-1xsj8nn{
     background-color: rgb(238, 232, 223);
 }
 
-.svelte-kqi2jn{
+.selected.svelte-kqi2jn{
     color: rgb(114, 81, 101);
 }

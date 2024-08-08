@@ -1,6 +1,6 @@
 /* temporary fix to load default gradio font in frontend instead of backend */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');*/
 
 
 /* temporary fix to hide gradio crop tool until it's fixed https://github.com/gradio-app/gradio/issues/3810 */
@@ -170,7 +170,7 @@ div.gradio-container, .block.gradio-textbox, div.gradio-group, div.gradio-dropdo
     height: 2.4em;
     align-self: end;
     line-height: 1em;
-    /*border-radius: 0.5em;*/
+    border-radius: 0em;
 }
 
 .gradio-button.secondary-down{
