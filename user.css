@@ -1,8 +1,15 @@
+/* Key:     background (288-222-213)
+                - for dropdowns (208, 202, 193) - darker
+                - for image preveiws (238, 232, 223) - lighter
+            text/accent (114-81-101)*/
+
+
+
 .lg.primary.gradio-button{
     color: rgb(114, 81, 101);
 }
 
-/* General rule: background (288-222-213), text/accent (114-81-101)*/
+/* General rule label*/
 *{
     background-color: rgb(228, 222, 213);
     color: rgb(114, 81, 101);
@@ -16,15 +23,18 @@
     background-color: rgb(228, 222, 213);
 }
 
+/*makes some symbols transparent so as to not create akward corners */
 svg, span.svelte-1gfkn6j, .svelte-19hvt5v, .ml-2.svelte-1qxcj04{
     background-color: rgb(0, 0, 0, 0);
     color: rgb(114, 81, 101);
     -ms-high-contrast-adjust: none;
 }
 
+/*dropdown menus */
 ul.options.svelte-1aonegi{
     background-color: rgb(228, 222, 213);
 }
+
 
 .scroll-hide{
     padding: 0px;
@@ -36,11 +46,14 @@ ul.options.svelte-1aonegi{
     background-color: white;
 }
 
+/*hitting specific things that had pre-set colors beforehand*/
 .wrap-inner.svelte-1xsj8nn, .secondary-wrap.svelte-1xsj8nn, .wrap.svelte-1xsj8nn, .dropdown-arrow, .svelte-s1r2yt, .block.gradio-accordion, 
 .label-wrap, .token-remove, #txt2img_hr-extra, #txtimg_hr_finalres, .resolution{
     background: rgb(208, 202, 193);
     color: rgb(114, 81, 101);
 }
+
+/*miscealanous color filling in's */
 
 div.wrap.svelte-1xsj8nn{
     background: rgb(218, 212, 203);
@@ -62,6 +75,7 @@ div.wrap.svelte-1xsj8nn{
     background-color: rgb(0, 0, 0, 0);
 }
 
+/* img preview spaces */
 .empty, .svelte-116rqfv, .svelte-1ck5uk8{
     background-color: rgb(238, 232, 223);
 }
