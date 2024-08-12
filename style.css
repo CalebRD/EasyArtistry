@@ -1099,10 +1099,6 @@ div.block.gradio-box.popup-dialog > div:last-child, .popup-dialog > div:last-chi
     margin-top: 1em;
 }
 
-div.block.input-accordion{
-
-}
-
 .input-accordion-extra{
     flex: 0 0 auto !important;
     margin: 0 0.5em 0 auto;

@@ -9,6 +9,10 @@
     color: rgb(114, 81, 101);
 }
 
+.dark .lg.primary.gradio-button{
+    color: rgb(228, 222, 213);
+}
+
 /* General rule label*/
 *{
     background-color: rgb(228, 222, 213);
@@ -18,9 +22,21 @@
     font-family: "Humanist";
 }
 
+.dark *{
+    background-color: rgb(114, 81, 101);
+    color: rgb(228, 222, 213);
+    border-color: rgb(228, 222, 213);
+    border-radius: 0px;
+    font-family: "Humanist";
+}
+
 /* Spot where the pictures go*/
 #txt2img_results_panel, #txt2img_gallery .gradio-column.svelte-vt1mxs, div.canvas-tooltip-content{
     background-color: rgb(228, 222, 213);
+}
+
+.dark #txt2img_results_panel, .dark #txt2img_gallery .gradio-column.svelte-vt1mxs, .dark div.canvas-tooltip-content{
+    background-color: rgb(114, 81, 101);
 }
 
 /*makes some symbols transparent so as to not create akward corners */
@@ -30,11 +46,20 @@ svg, span.svelte-1gfkn6j, .svelte-19hvt5v, .ml-2.svelte-1qxcj04{
     -ms-high-contrast-adjust: none;
 }
 
+.dark svg, .dark span.svelte-1gfkn6j, .dark .svelte-19hvt5v, .dark .ml-2.svelte-1qxcj04{
+    background-color: rgb(0, 0, 0, 0);
+    color: rgb(228, 222, 213);
+    -ms-high-contrast-adjust: none;
+}
+
 /*dropdown menus */
 ul.options.svelte-1aonegi{
     background-color: rgb(228, 222, 213);
 }
 
+.dark ul.options.svelte-1aonegi{
+    background-color: rgb(114, 81, 101);
+}
 
 .scroll-hide{
     padding: 0px;
@@ -42,8 +67,18 @@ ul.options.svelte-1aonegi{
     color: rgb(114, 81, 101);
 }
 
+.dark .scroll-hide{
+    padding: 0px;
+    font-size: larger;
+    color: rgb(228, 222, 213);
+}
+
 .ml-2.svelte-1p9xokt{
-    background-color: white;
+    background-color: rgb(0, 0, 0, 0);
+}
+
+.dark .ml-2.svelte-1p9xokt{
+    background-color: rgb(0, 0, 0, 0);
 }
 
 /*hitting specific things that had pre-set colors beforehand*/
@@ -53,10 +88,22 @@ ul.options.svelte-1aonegi{
     color: rgb(114, 81, 101);
 }
 
+/*hitting specific things that had pre-set colors beforehand*/
+.dark .wrap-inner.svelte-1xsj8nn, .dark .secondary-wrap.svelte-1xsj8nn, .dark .wrap.svelte-1xsj8nn, .dark .dropdown-arrow,
+ .dark .svelte-s1r2yt, .dark .block.gradio-accordion, .dark .label-wrap, .dark .token-remove, .dark #txt2img_hr-extra,
+  .dark #txtimg_hr_finalres, .dark .resolution{
+    background: rgb(94, 61, 81);
+    color: rgb(228, 222, 213);
+}
+
 /*miscealanous color filling in's */
 
 div.wrap.svelte-1xsj8nn{
     background: rgb(218, 212, 203);
+}
+
+.dark div.wrap.svelte-1xsj8nn{
+    background: rgb(104, 71, 91);
 }
 
 .wrap-inner.svelte-1xsj8nn{
@@ -67,8 +114,16 @@ div.wrap.svelte-1xsj8nn{
     background-color: rgb(228, 222, 213);
 }
 
+.dark #txt2img_sampling, .dark div#setting_sd_model_checkpoint{
+    background-color: rgb(114, 81, 101);
+}
+
 .svelte-vt1mxs.gap.panel{
     background-color: rgb(228, 222, 213);
+}
+
+.dark .svelte-vt1mxs.gap.panel{
+    background-color: rgb(114, 81, 101);
 }
 
 #columns-settings-saving-paths, .feather-image, circle, rect, polyline{
@@ -80,6 +135,27 @@ div.wrap.svelte-1xsj8nn{
     background-color: rgb(238, 232, 223);
 }
 
+.dark .empty, .dark .svelte-116rqfv, .dark .svelte-1ck5uk8{
+    background-color: rgb(124, 91, 111);
+}
+
 .selected.svelte-kqi2jn{
     color: rgb(114, 81, 101);
+}
+
+.dark .selected.svelte-kqi2jn{
+    color: rgb(228, 222, 213);
+}
+
+.dark #img2img_results, .dark #img2img_results_panel, .dark #txt2img_results, .dark #extras_results, .dark #extras_results_panel {
+    color:rgb(114, 81, 101);
+    background-color: rgb(114, 81, 101);
+    position: sticky;
+    top: 0.5em;
+}
+
+.dark .gradio-container .prose a, .dark .gradio-container .prose a:visited{
+    color: rgb(228, 222, 213);
+    text-decoration: none;
+    font-weight: bold;
 }
