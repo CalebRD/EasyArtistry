@@ -159,3 +159,26 @@ div.wrap.svelte-1xsj8nn{
     text-decoration: none;
     font-weight: bold;
 }
+
+/*uncomment the commented stuff below if a version of the logo with swapped colors ever happens*/
+
+/*.dark*/ #logo{
+    position: absolute;
+    bottom: 1px;
+    left: 5px;
+}
+
+/*
+#logo{
+    opacity: 0;
+}
+
+#logoIn{
+    position: absolute;
+    bottom: 1px;
+    left: 5px;
+}
+
+.dark #logoIn{
+    opacity: 0;
+}
