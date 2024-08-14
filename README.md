@@ -7,16 +7,18 @@ Stack: Our current plan is to use python for both front and back end, and Stable
 
 
 Roadmap:
-Get a basic framework program running. Feb. 15
-Generate images locally using StableDiffusion. Feb 15
-Have a basic website. Feb 30
-Generate images in the program. Feb 30
-Begin Prototyping iteration. Mar 15.
-Refine iteration tools. Mar 30.
-Refine UI and begin branding. April 15.
-Polish website, add download link. April 15.
-Begin testing online image generation (possibly using AWS). April 30.
-Begin testing other engines. April 30th.
-Begin Researching our own model. May 15.
-Start social media campaign to collect data ethically. May 15.
-Dates are all subject to change.
+- [x] Get a basic framework program running. Feb. 15
+- [x] Generate images locally using StableDiffusion. Feb 15
+- [x] Generate images in the program. Feb 30
+- [x] Implement Invisible watermark
+- [x] Implement presets.
+- [ ] Implement API support.
+- [ ] Begin Prototyping iteration. 
+- [ ] Refine iteration tools.
+- [ ] Refine UI and begin branding.
+- [ ] Polish website, add download link.
+- [ ] Begin testing online image generation (possibly using AWS).
+- [ ] Begin testing other engines. 
+- [ ] Begin Researching our own model.
+- [ ] Start social media campaign to collect data ethically.
+
