@@ -713,7 +713,7 @@ table.popup-table .link{
 
 .modalPrev,
 .modalNext {
-  cursor: pointer;
+  cursor: grab;
   position: absolute;
   top: 50%;
   width: auto;
@@ -756,9 +756,9 @@ table.popup-table .link{
     position:absolute;
     display:block;
     padding:0px 0;
-    border:2px solid #a55000;
+    border:2px solid #3c00a5;
     border-radius:8px;
-    box-shadow:1px 1px 2px #CE6400;
+    box-shadow:1px 1px 2px #1500ce;
     width: 200px;
 }
 
@@ -775,7 +775,7 @@ table.popup-table .link{
 }
 
 .context-menu-items a:hover{
-    background: #a55000;
+    background: #4f0090;
 }
 
 
